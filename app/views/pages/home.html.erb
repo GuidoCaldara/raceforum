@@ -1,0 +1,10 @@
+<h1>Homepage</h1>
+
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+
+<% if user_signed_in? %>
+    <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+    <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+<% end %>
+
+<%= link_to 'Race index', races_path %> 

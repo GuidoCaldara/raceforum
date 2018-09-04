@@ -41,6 +41,13 @@ Devise.setup do |config|
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [:email]
+  Devise.setup do |config|
+  config.omniauth :facebook, Rails.application.credentials.fb[:id], Rails.application.credentials.fb[:secret],
+    scope: 'email',
+    info_fields: 'email, first_name, last_name',
+    image_size: 'large',  # 50x50, guaranteed ratio
+    secure_image_url: true
+end
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the

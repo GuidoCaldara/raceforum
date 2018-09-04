@@ -1,0 +1,5 @@
+<h1>Races#index</h1>
+<%= link_to 'Add a new Race', new_race_path %>
+<% @races.each do |race| %>
+    <p><%= race.name %></p>
+<% end %>

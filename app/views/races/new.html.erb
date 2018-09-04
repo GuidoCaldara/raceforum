@@ -1,0 +1,49 @@
+<h1>Add a new Race</h1>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <%= simple_form_for @race do |f| %>
+      <%= f.input :name, label: "Nome" %>
+      <%= f.input :typo, label: "Tipo di gara" %>
+      <%= f.input :distance, label:"Distanza" %>
+      <%= f.input :elevation, label:"Dislivello positivo" %>
+      <%= f.input :location, label:"Luogo"%>
+      <%= f.input :last_edition, as: :string, type: :text, placeholder: "Select a date...", label: "Data dell'ultima edizione"%>
+      <%= f.input :next_edition, as: :string, type: :text, placeholder: "Select a date...", label: "Data della prossima edizione"%>
+      <%= f.input :organizer, label: "Organizzatore" %>
+      <%= f.input :price, label:"Prezzo in Euro"%>
+      <%= f.input :website, label: "Sito internet" %>
+      <%= f.input :subscription_link, label:"Link alla pagina delle iscrizioni"%>
+      <%= f.button :submit, "Aggiungi Gara"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  flatpickr("#race_last_edition", {});
+  flatpickr("#race_next_edition", {});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.10.0"></script>
+<script>
+  (function () {
+    var placesAutocomplete = places({
+      container: document.querySelector('#race_location'),
+      type: 'city',
+      aroundLatLngViaIP: false,
+      templates: {
+        value: function (suggestion) {
+          return suggestion.name;
+        }
+      }
+    });
+  })();
+</script>
+
+<script>
+</script>
