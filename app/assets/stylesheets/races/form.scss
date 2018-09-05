@@ -1,0 +1,49 @@
+.race-type-box {
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	border: 1px solid #ced4da;
+	color: #808284;
+}
+
+.race-type-box:hover {
+	cursor: pointer
+}
+
+.race-type-box-active {
+	border: 1px solid black;
+	color: #4e4e4e;
+	font-weight: 500;
+	background-color: #5ebbff
+}
+
+.race-form-card {
+	border-radius: 0px;
+	border: 1px solid #e8e8e8;
+}
+
+.mandatory-race-info,
+.extra-race-info {
+	border: 1px solid #868686
+}
+
+.new-race-form{
+	.form-control {
+		border-radius: 0px;
+		border: none;
+	    border-bottom: 1px solid #a2a2a2;
+	}
+
+	.form-control:focus {
+		box-shadow: none;
+		border-color: #171616;
+	}
+
+	.form-control[readonly]{
+		background-color: white;
+	}
+
+	.race-form-container{
+		background-color: #e8e8e83b;
+	}
+}

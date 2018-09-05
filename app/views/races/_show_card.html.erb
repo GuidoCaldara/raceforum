@@ -1,0 +1,25 @@
+<div class="card py-3 px-4 race-show-card">
+  <h1 class ="display-3"><%= race.name%></h1>
+  <div class="row mt-3 justify-content-around">
+    <div class="col-md-4">
+      <p class="lead mb-2"><b><%= city%>, <%=race.state if race.state%></b></p>
+      <p class="lead mb-2"><b>Tipologia:</b> <%= race.typo %></p>
+      <p class="lead mb-2"><b>Distanza:</b> <%= race.distance %>Km</p>
+      <% if race.elevation %>
+        <p class="lead mb-2"><b>Dislivello:</b> <%= race.elevation %>m d+</p>
+      <% end %>
+    <!-- </div> -->
+    <!-- <div class="col-md-4 pt-5"> -->
+      <p class="lead mb-2"><b>Prossima edizione:</b> <%= race.next_edition %></p>
+      <p class="lead mb-2"><b>Prezzo iscrizione:</b> <%= race.price || "Non inserito"%></p>
+      <% if race.website %>
+        <p class="lead mb-2"> <b><link rel="<%= race.website %>"> Visita il sito web </link></b></p>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <div id="show-map" style="height: 260px; width:100%" data-markers="<%= markers.to_json %>"></div>
+    </div>
+
+  </div>
+
+</div>

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_09_04_022926) do
     t.bigint "question_id"
     t.bigint "user_id"
     t.bigint "race_id"
-    t.string "text"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2018_09_04_022926) do
     t.bigint "user_id"
     t.bigint "race_id"
     t.string "title"
-    t.string "text"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["race_id"], name: "index_questions_on_race_id"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2018_09_04_022926) do
     t.date "last_edition"
     t.date "next_edition"
     t.string "location"
+    t.string "state"
+    t.string "period"
     t.string "country"
     t.float "latitude"
     t.float "longitude"
@@ -64,7 +66,7 @@ ActiveRecord::Schema.define(version: 2018_09_04_022926) do
     t.bigint "user_id"
     t.bigint "race_id"
     t.string "title"
-    t.string "text"
+    t.text "text"
     t.integer "path_rating"
     t.integer "organization_rating"
     t.integer "quality_price_rating"

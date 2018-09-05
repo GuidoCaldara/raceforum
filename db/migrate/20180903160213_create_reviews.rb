@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.references :race, foreign_key: true
       t.string :title
-      t.string :text
+      t.text :text
       t.integer :path_rating
       t.integer :organization_rating
       t.integer :quality_price_rating

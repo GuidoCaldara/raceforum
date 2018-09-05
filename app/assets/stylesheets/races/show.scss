@@ -1,0 +1,44 @@
+.container-show {
+	background-color: #f1eded36;
+}
+@media screen and (max-width: 663px) {
+	.container-show {
+		padding: 0 !important;
+	}
+}
+
+.race-show-card {
+	border-radius: 0;
+	border: 1px solid #e8e8e859;
+}
+
+#show-map {
+	height: 260px;
+	width: 100%;
+	border: 1px solid #b5b3b340;
+	position: relative;
+	border-radius: 4px;
+}
+
+.nav-show-race {
+	display: flex;
+	justify-content: space-around;
+}
+
+.show-link-nav{
+ border-radius: 0px !important
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    color: #424242;
+    font-weight: 400;
+    background: #5ebbff;
+    border: 1px solid #1f1f1f8a;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0.25rem;
+		border: 1px solid #7b79798a;
+    color: #424242;
+}

@@ -9,6 +9,8 @@ class CreateRaces < ActiveRecord::Migration[5.2]
       t.date :last_edition
       t.date :next_edition
       t.string :location
+      t.string :state
+      t.string :period
       t.string :country
       t.float :latitude
       t.float :longitude

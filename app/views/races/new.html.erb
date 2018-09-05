@@ -1,27 +1,56 @@
-<h1>Add a new Race</h1>
-
-
-<div class="container">
+<div class="container-fluid race-form-container">
   <div class="row">
-    <div class="col-md-6 mx-auto">
-      <%= simple_form_for @race do |f| %>
-      <%= f.input :name, label: "Nome" %>
-      <%= f.input :typo, label: "Tipo di gara" %>
-      <%= f.input :distance, label:"Distanza" %>
-      <%= f.input :elevation, label:"Dislivello positivo" %>
-      <%= f.input :location, label:"Luogo"%>
-      <%= f.input :last_edition, as: :string, type: :text, placeholder: "Select a date...", label: "Data dell'ultima edizione"%>
-      <%= f.input :next_edition, as: :string, type: :text, placeholder: "Select a date...", label: "Data della prossima edizione"%>
-      <%= f.input :organizer, label: "Organizzatore" %>
-      <%= f.input :price, label:"Prezzo in Euro"%>
-      <%= f.input :website, label: "Sito internet" %>
-      <%= f.input :subscription_link, label:"Link alla pagina delle iscrizioni"%>
-      <%= f.button :submit, "Aggiungi Gara"%>
-      <% end %>
+    <div class="col-md-9 col-sm-12 mx-auto">
+      <div class="card race-form-card py-3 px-3">
+        <%= simple_form_for @race,  html: { class: 'new-race-form' } do |f| %>
+        <h4 class="mb-2 mx-auto">Informazioni Obbligatorie</h4>
+        <div class="mandatory-race-info p-3 mb-3">
+          <%= f.input :name, label: "Nome dell'evento" %>
+          <label class="form-control-label string optional">Tipo di gara</label>
+          <div class="row mb-1">
+            <div class="col-6">
+              <div data-value="Trail" class="race-type-box trail-box">Trail</div>
+              <div data-value="Road" class="race-type-box road-box">Strada</div>
+            </div>
+            <div class="col-6">
+              <div data-value="Skyrace" class="race-type-box skyrace-box">Skyrace</div>
+              <div data-value="Vertical" class="race-type-box vertical-box">Vertical</div>
+            </div>
+          </div>
+          <%= f.hidden_field :typo, label: "Tipo di gara", value: "" %>
+          <div class="row">
+            <div class="col-6">
+              <%= f.input :distance, label:"Distanza in Km", input_html: { min: '5', max:"350", step: 'any' } %>
+            </div>
+            <div class="col-6">
+              <%= f.input :elevation, label:"Dislivello positivo", placeholder: "In metri", input_html: { min: '100', max:"35000", step: '100' } %>
+            </div>
+          </div>
+
+          <%= f.input :location, label:"Luogo"%>
+
+        </div>
+        <h4 class="mb-2 mx-auto">Informazioni Extra</h4>
+        <div class="extra-race-info p-3 mb-3">
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <%= f.input :last_edition, as: :string, type: :text, placeholder: "Select a date...", label: "Data dell'ultima edizione"%>
+            </div>
+            <div class="col-sm-6">
+              <%= f.input :next_edition, as: :string, type: :text, placeholder: "Select a date...", label: "Data della prossima edizione"%>
+            </div>
+          </div>
+          <%= f.input :price, label:"Prezzo dell'iscrizione in Euro", input_html: { min: '0', max:"35000", step: '100' }%>
+          <%= f.input :website, label: "Sito internet" %>
+          <%= f.input :subscription_link, label:"Link alla pagina delle iscrizioni"%>
+        </div>
+        <%= f.button :submit, "Aggiungi Gara", class:"btn medium-btn float-right"%>
+        <% end %>
+
+      </div>
     </div>
   </div>
 </div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
@@ -31,18 +60,16 @@
 
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.10.0"></script>
 <script>
-  (function () {
-    var placesAutocomplete = places({
-      container: document.querySelector('#race_location'),
-      type: 'city',
-      aroundLatLngViaIP: false,
-      templates: {
-        value: function (suggestion) {
-          return suggestion.name;
-        }
-      }
-    });
-  })();
+(function() {
+  var placesAutocomplete = places({
+    container: document.querySelector('#race_location')
+  });
+
+  placesAutocomplete.on('clear', function() {
+    $address.textContent = 'none';
+  });
+
+})();
 </script>
 
 <script>

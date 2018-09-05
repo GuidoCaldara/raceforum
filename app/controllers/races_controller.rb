@@ -6,6 +6,8 @@ class RacesController < ApplicationController
   end
 
   def show
+    @city = @race.location.split(",")[0]
+    @markers ={ lat: @race.latitude, lng: @race.longitude }
   end
 
   def new
@@ -18,7 +20,7 @@ class RacesController < ApplicationController
     if @race.save
       redirect_to @race
       flash[:success] = "Grazie per il tuo contributo! #{@race.name} è stata inserita nel database!"
-    else 
+    else
       render :new
     end
   end
@@ -31,7 +33,7 @@ class RacesController < ApplicationController
     if @race_save
       redirect_to @race
       flash[:success] = " #{@race.name} è stata aggiornata!"
-    else 
+    else
       render :edit
     end
 
@@ -41,7 +43,7 @@ class RacesController < ApplicationController
     if @race.destroy
       redirect_to races_path
       flash[:success] = " #{@race.name} La gara è stata eliminata dal database!t"
-    else 
+    else
       render :edit
     end
   end
@@ -54,4 +56,3 @@ class RacesController < ApplicationController
     @race = Race.find(params[:id])
   end
 end
-
