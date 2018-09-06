@@ -1,0 +1,57 @@
+.review-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-size: contain;
+  background-position: center;
+  border: 1px solid #ececec;
+}
+
+.user-review-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+}
+
+.review-date {
+  font-size: 10px;
+}
+
+.card-box-review {
+  border: 1px solid #EBEBEB !important;
+  border-radius: 4px !important;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.review-avatar-no-fb {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-size: contain;
+  background-position: center;
+  background-image: url("asset-path('runner-icon.png')");
+  border: 1px solid #ececec;
+}
+
+.review-col {
+  border-left: 1px solid #0000001c;
+}
+
+.review-text {
+  font-size: 13px;
+}
+@media screen and (max-width: 575px) {
+  .user-review-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+    p {
+      margin: 4px 0;
+    }
+  }
+}

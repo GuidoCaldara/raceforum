@@ -1,6 +1,4 @@
-.container-show {
-	background-color: #f1eded36;
-}
+.container-show {}
 @media screen and (max-width: 663px) {
 	.container-show {
 		padding: 0 !important;
@@ -8,8 +6,13 @@
 }
 
 .race-show-card {
-	border-radius: 0;
-	border: 1px solid #e8e8e859;
+	font-size: 1rem;
+	font-weight: 400;
+	border: 1px solid #EBEBEB !important;
+	border-left: none !important;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05) !important;
+	border-radius:  0px 0.25rem 0.25rem 0px   !important;
+	color:#484848;
 }
 
 #show-map {
@@ -25,20 +28,26 @@
 	justify-content: space-around;
 }
 
-.show-link-nav{
- border-radius: 0px !important
-}
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    color: #424242;
-    font-weight: 400;
-    background: #5ebbff;
-    border: 1px solid #1f1f1f8a;
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  border-radius: 0.25rem 0px   0px  0.25rem!important;
+	color: #fff;
+	color: #505050;
+	font-weight: 400;
+	background: #5ebbff;
+	border: 1px solid #EBEBEB !important;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05) !important;
+	font-size: 1rem;
+	font-weight: 400;
 }
 
 .nav-pills .nav-link {
-    border-radius: 0.25rem;
-		border: 1px solid #7b79798a;
-    color: #424242;
+	font-size: 1rem;
+	font-weight: 400;
+	border: 1px solid #EBEBEB !important;
+	border-left: none !important;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05) !important;
+	border-radius:  0px 0.25rem 0.25rem 0px   !important;
+	color:#4242428a;
 }

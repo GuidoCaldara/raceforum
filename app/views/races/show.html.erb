@@ -1,33 +1,42 @@
-
 <div class="container-fluid container-show px-5">
-	<%= render "show_card", race: @race, markers: @markers, city: @city %>
-	<%= render "nav_show" %>
+	<div class="row">
+		<div class="col-md-10 mx-auto">
+			<%= render "show_card", race: @race, markers: @markers, city: @city %>
 
-	<div class="card py-3 px-4 race-show-card">
-		<div class="tab-content" id="pills-tabContent">
-			<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+		</div>
+	</div>
 
-				<% if user_signed_in? %>
-					<%= simple_form_for ([@race, Review.new]),  html: { class: 'review-form' } do |f| %>
-					<%= f.input :title %>
-					<%= f.input :text %>
-					<%= f.input :path_rating %>
-					<%= f.input :organization_rating %>
-					<%= f.input :quality_price_rating %>
-					<%= f.input :difficulty %>
-					<%= f.button :submit %>
+<div class="row">
+	<div class="col-md-10 mx-auto">
+		<%= render "nav_show" %>
+
+		<div class="card py-3 px-4 race-show-card">
+			<div class="tab-content" id="pills-tabContent">
+				<div class="tab-pane fade show active review-box-container" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+					<% if user_signed_in? %>
+						<%= render "reviews/accordion_form", race: @race %>
 					<% end %>
-				<% end %>
+					<% @reviews.each do |review| %>
+						<%= render "reviews/box_show", review: review %>
+					<% end %>
+
+			</div>
+			<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+				<%= render "questions/question_accordion", questions: @race.questions %>
 
 
 
 
 
 			</div>
-			<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
 		</div>
 
 	</div>
+
+	</div>
+</div>
 
 </div>
 
