@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="path_rating">
+      <%= javascript_pack_tag 'RangeForm' %>
+      <%= content_tag :div, id: 'objects_data',  data: {field: "path_rating", label: "Voto al percorso"} do %>
+      <% end %>
+    </div>
+    <div class="organization_rating">
+      <%= javascript_pack_tag 'RangeForm' %>
+      <%= content_tag :div, id: 'objects_data',  data: {field: "organization_rating", label: "Voto all'organizzazione"} do %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="quality_price_rating">
+      <%= javascript_pack_tag 'RangeForm' %>
+      <%= content_tag :div, id: 'objects_data',  data: {field: "quality_price_rating", label: "Rapporto qualità prezzo"} do %>
+      <% end %>
+    </div>
+    <div class="difficulty">
+      <%= javascript_pack_tag 'RangeForm' %>
+      <%= content_tag :div, id: 'objects_data',  data: {field: "difficulty", label: "Difficoltà"} do %>
+      <% end %>
+    </div>
+  </div>
+</div>

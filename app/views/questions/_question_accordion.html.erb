@@ -1,0 +1,19 @@
+<% questions.each do |question| %>
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="question-<%= question.id %>">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#<%= question.id %>-question" aria-expanded="true" aria-controls="<%= question.id %>-question">
+          <h5><%= question.title %></h5>
+        </button>
+      </h5>
+    </div>
+
+    <div id="<%= question.id %>-question" class="collapse show" aria-labelledby="question-<%= question.id %>" data-parent="#accordion">
+      <div class="card-body">
+        <p><%= question.text %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

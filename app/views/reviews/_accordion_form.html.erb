@@ -1,0 +1,27 @@
+<div id="accordion_review" class ="review-form-box">
+  <div class="card review-card-collapse">
+    <div class="card-header card-header-review p-0" id="review-accordion">
+      <h5 class="mb-0">
+        <button class="btn-review btn btn-link collapsed" data-toggle="collapse" data-target="#reviewCollapse" aria-expanded="false" aria-controls="reviewCollapse">
+          Lascia la tua recensione
+          <i class="ml-2 fas fa-pen"></i>
+        </button>
+      </h5>
+    </div>
+
+    <div id="reviewCollapse" class="collapse" aria-labelledby="review-accordion" data-parent="#accordion_review">
+      <div class="card-body">
+        <%= simple_form_for ([race, Review.new]), remote: true, html: { class: 'review-form' } do |f| %>
+        <%= render "reviews/rating_stars" %>
+        <%= f.input :title, label:"Dai un titolo alla tua recensione" %>
+        <%= f.input :text, label:"Racconta la tua esperienza" %>
+        <%= f.hidden_field :path_rating, value: 1%>
+        <%= f.hidden_field :organization_rating, value: 1%>
+        <%= f.hidden_field :quality_price_rating, value: 1%>
+        <%= f.hidden_field :difficulty %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>

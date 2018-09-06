@@ -1,0 +1,64 @@
+.rating-box{
+  display: flex
+}
+
+.rating-label{
+	font-weight: 500;
+}
+
+.review-form{
+	input{
+		border: 1px solid #c3c0c0;
+		border-radius: 0px;
+		font-weight: 300;
+		color: gray;
+	}
+	input:focus{
+	border-color: black;
+	box-shadow: none;
+	border: 1px solid gray;
+	}
+	textarea{
+		border: 1px solid #c3c0c0;
+		border-radius: 0px;
+		min-height: 160px;
+		font-weight: 300;
+		color: gray;
+
+	}
+	textarea:focus{
+	border-color: black;
+	box-shadow: none;
+	border: 1px solid gray;
+	}
+
+}
+
+.fa-star{
+  color: #30b9ff
+}
+
+.btn-review {
+	font-weight: 400;
+	color: #767676 !important;
+	background-color: transparent;
+}
+
+.btn-review:hover{
+	text-decoration: none;
+	color: #484848
+}
+.btn-review:focus{
+	text-decoration: none;
+}
+
+
+.review-card-collapse{
+  border: 1px solid #EBEBEB !important;
+	border-radius: 4px !important;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.card-header-review{
+	background-color: transparent;
+}

@@ -1,20 +1,32 @@
 <div class="card py-3 px-4 race-show-card">
-  <h1 class ="display-3"><%= race.name%></h1>
-  <div class="row mt-3 justify-content-around">
-    <div class="col-md-4">
-      <p class="lead mb-2"><b><%= city%>, <%=race.state if race.state%></b></p>
-      <p class="lead mb-2"><b>Tipologia:</b> <%= race.typo %></p>
-      <p class="lead mb-2"><b>Distanza:</b> <%= race.distance %>Km</p>
+
+  <div class="">
+    <p class="mb-0"> <%= race.typo %></p>
+    <h1 class ="mb-0"><%= race.name%></h1>
+    <div class="d-flex justify-content-start">
+      <p class="mr-4"><i class="fas fa-map-marked-alt"></i> <%= city%>, <%=race.state if race.state%></p>
+      <p class="mr-4"> <i class="fas fa-road"></i> <%= race.distance %>Km</p>
       <% if race.elevation %>
-        <p class="lead mb-2"><b>Dislivello:</b> <%= race.elevation %>m d+</p>
+        <p class="mr-4"><i class="fas fa-sort-amount-up"></i> <%= race.elevation %>m d+</p>
       <% end %>
+      <p class="mr-4"><i class="far fa-calendar-alt" style="margin-right: 3px"></i><%= race.next_edition.strftime("%d/%m/%Y") %></p>
+      <% if @race.price %>
+      <p class="mr-4"><i class="fas fa-money-bill-wave" style="margin-right: 3px"></i><%= race.price %>€</p>
+      <% if race.website %>
+        <p class=""> <i class="fab fa-chrome"></i><link rel="<%= race.website %>"> Sito Web </link></p>
+      <% end %>
+
+      <% end %>
+
+    </div>
+
+  </div>
+  <div class="row mt-3 justify-content-around">
+    <div class="col-md-6">
+
+
     <!-- </div> -->
     <!-- <div class="col-md-4 pt-5"> -->
-      <p class="lead mb-2"><b>Prossima edizione:</b> <%= race.next_edition %></p>
-      <p class="lead mb-2"><b>Prezzo iscrizione:</b> <%= race.price || "Non inserito"%></p>
-      <% if race.website %>
-        <p class="lead mb-2"> <b><link rel="<%= race.website %>"> Visita il sito web </link></b></p>
-      <% end %>
     </div>
     <div class="col-md-6">
       <div id="show-map" style="height: 260px; width:100%" data-markers="<%= markers.to_json %>"></div>

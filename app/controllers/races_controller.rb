@@ -8,6 +8,7 @@ class RacesController < ApplicationController
   def show
     @city = @race.location.split(",")[0]
     @markers ={ lat: @race.latitude, lng: @race.longitude }
+    @reviews = @race.reviews
   end
 
   def new
@@ -17,6 +18,7 @@ class RacesController < ApplicationController
   def create
     @race = Race.new(race_params)
     @race.user = User.last
+    byebug
     if @race.save
       redirect_to @race
       flash[:success] = "Grazie per il tuo contributo! #{@race.name} è stata inserita nel database!"

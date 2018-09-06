@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.10.0"></script>
+
 <div class="container-fluid race-form-container">
   <div class="row">
     <div class="col-md-9 col-sm-12 mx-auto">
@@ -58,7 +60,6 @@
   flatpickr("#race_next_edition", {});
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.10.0"></script>
 <script>
 (function() {
   var placesAutocomplete = places({
@@ -66,7 +67,7 @@
   });
 
   placesAutocomplete.on('clear', function() {
-    $address.textContent = 'none';
+  container.textContent = 'none';
   });
 
 })();
