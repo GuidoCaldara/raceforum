@@ -28,21 +28,21 @@
               <%= f.input :elevation, label:"Dislivello positivo", placeholder: "In metri", input_html: { min: '100', max:"35000", step: '100' } %>
             </div>
           </div>
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <%= f.input :price, label:"Prezzo dell'iscrizione in Euro", input_html: { min: '0', max:"35000", step: '100' }%>
+            </div>
+            <div class="col-sm-6">
+              <%= f.input :next_edition, as: :string, type: :text, placeholder: "Select a date...", label: "Data della prossima edizione"%>
+            </div>
+          </div>
+
 
           <%= f.input :location, label:"Luogo"%>
 
         </div>
         <h4 class="mb-2 mx-auto">Informazioni Extra</h4>
         <div class="extra-race-info p-3 mb-3">
-          <div class="row mb-3">
-            <div class="col-sm-6">
-              <%= f.input :last_edition, as: :string, type: :text, placeholder: "Select a date...", label: "Data dell'ultima edizione"%>
-            </div>
-            <div class="col-sm-6">
-              <%= f.input :next_edition, as: :string, type: :text, placeholder: "Select a date...", label: "Data della prossima edizione"%>
-            </div>
-          </div>
-          <%= f.input :price, label:"Prezzo dell'iscrizione in Euro", input_html: { min: '0', max:"35000", step: '100' }%>
           <%= f.input :website, label: "Sito internet" %>
           <%= f.input :subscription_link, label:"Link alla pagina delle iscrizioni"%>
         </div>

@@ -1,2 +1,6 @@
 document.querySelector(".review-form-box").remove()
+document.querySelector("#closeReviewModal").click()
+document.querySelector("#reviewModal").remove()
+document.querySelector("#btn-review").remove()
+document.querySelector("#race-rating").innerText = '<%= @review.race.rating %>'
 document.querySelector(".review-box-container").insertAdjacentHTML("afterBegin",'<%= j render "box_show", review: @review %>')

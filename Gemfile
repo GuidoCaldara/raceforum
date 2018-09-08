@@ -13,6 +13,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'react-rails'
+gem "mini_magick"
 
 gem 'devise'
 gem 'bootstrap', '~> 4.1.3'
@@ -22,7 +23,8 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'omniauth-facebook'
 gem "pundit"
 gem 'simple_form'
-
+gem "google-cloud-storage", "~> 1.11", require: false
+gem 'image_processing', '~> 1.2'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

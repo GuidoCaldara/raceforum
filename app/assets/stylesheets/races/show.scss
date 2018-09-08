@@ -11,8 +11,8 @@
 	border: 1px solid #EBEBEB !important;
 	border-left: none !important;
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05) !important;
-	border-radius:  0px 0.25rem 0.25rem 0px   !important;
-	color:#484848;
+	border-radius: 0 0.25rem 0.25rem 0 !important;
+	color: #484848;
 }
 
 #show-map {
@@ -28,10 +28,9 @@
 	justify-content: space-around;
 }
 
-
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  border-radius: 0.25rem 0px   0px  0.25rem!important;
+	border-radius: 0.25rem 0 0 0.25rem!important;
 	color: #fff;
 	color: #505050;
 	font-weight: 400;
@@ -48,6 +47,69 @@
 	border: 1px solid #EBEBEB !important;
 	border-left: none !important;
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05) !important;
-	border-radius:  0px 0.25rem 0.25rem 0px   !important;
-	color:#4242428a;
+	border-radius: 0 0.25rem 0.25rem 0 !important;
+	color: #4242428a;
+}
+
+.photo-container {
+	height: 360px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.80)), url("race-no-photo.jpg");
+	background-size: cover;
+	background-position: center;
+}
+@media screen and (max-width: 766px) {
+	.photo-container {
+		margin-bottom: 20px !important;
+	}
+}
+@media screen and (max-width: 575px) {
+	.photo-container {
+		height: 375px;
+	}
+	.camera-photo {
+		height: 100px;
+		width: 18%
+	}
+}
+
+.camera-photo {
+	height: 100px;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+
+	p {
+		color: #f5f5f5;
+	}
+}
+.single-photo-container{
+	height: 260px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-size: cover;
+	background-position: center;
+}
+
+
+.camera-photo-image {
+	width: 100%;
+}
+
+.fa-star-half{
+  color: #30b9ff
+}
+
+
+#race-rating{
+	.fas{
+		font-size: 20px
+	}
 }

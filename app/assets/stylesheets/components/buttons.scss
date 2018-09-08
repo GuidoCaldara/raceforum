@@ -1,5 +1,18 @@
 .medium-btn {
 	background-color: white;
-	border: 1px solid black;
-	border-radius: 0px
+	border: 1px solid #737373;
+	border-radius: 0.25rem;
+	color: #767676 !important;}
+
+.modal-medium-btn{
+	width: 25%;
+	margin-bottom: 10px;
+	float:right;
+	margin-right: 10px
+}
+
+
+.medium-btn:hover{
+border: 1px solid #2d2d2d;
+color: #2d2d2d;
 }

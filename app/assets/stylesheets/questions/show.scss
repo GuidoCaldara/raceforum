@@ -1,4 +1,42 @@
-.question-card-collapse{
-	border-radius: 0px;
-	background-color: white
+.question-card-collapse {
+	border-radius: 0;
+	background-color: white;
+}
+
+.card-header-question {
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 0;
+	background-color: rgba(0, 0, 0, 0.03);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.btn-question{
+	color: #484848 !important;
+
+}
+
+.button-question{
+	text-align: left !important;
+}
+
+.question-info{
+	font-size: 12px
+}
+
+
+.answer-body{
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.answer-info{
+	font-size: 14px;
+
+}
+
+
+.answer-text{
+	font-size: 15px;
+	color: #767676 ;
 }

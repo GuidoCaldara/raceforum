@@ -1,0 +1,169 @@
+.carousel-box {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 450px;
+}
+
+.small-img-box {
+  min-width: 95px;
+  height: 100%;
+  margin-right: 20px !important;
+  background-size: cover;
+  background-position: center;
+  overflow: auto;
+}
+
+.small-img-box:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 10px 2px rgba(128,125,128,1);
+  -moz-box-shadow: 0 0 10px 2px rgba(128,125,128,1);
+  box-shadow: 0 0 10px 2px rgba(128,125,128,1);
+}
+
+.thumb-box {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  overflow: auto;
+}
+
+#scroll-right {
+  color: #484848;
+  font-size: 30px;
+}
+
+#scroll-left {
+  color: #484848;
+  font-size: 30px;
+}
+
+#scroll-right:hover {
+  cursor: pointer;
+  color: #4c4c4c;
+}
+
+#scroll-left:hover {
+  cursor: pointer;
+  color: #4c4c4c;
+}
+
+#scroll-right-box {
+  background-color: transparent;
+  top: 45%;
+  right: 1%;
+  font-size: 50px;
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  height: 120px;
+}
+
+#scroll-left-box {
+  background-color: transparent;
+  top: 45%;
+  right: 1%;
+  font-size: 50px;
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  height: 120px;
+}
+
+.slider-box {
+  display: flex;
+  height: 150px;
+}
+
+.main-image-container {
+  width: 100%;
+  height: 360px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  position: relative;
+}
+
+.full-screen-icon {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  font-size: 40px;
+  color: grey;
+}
+
+.full-screen-icon:hover {
+  cursor: pointer;
+}
+
+.full-screen-background {
+  background-color: red;
+  z-index: 5;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.photo-full-screen-background {
+  opacity: 0.9 !important;
+}
+
+.photo-big-modal {
+  max-width: 100% !important;
+}
+
+.photo-gallery-modal {
+  background-color: transparent;
+}
+
+.modal-gallery-body {
+  height: 100vh;
+}
+
+.full-screen-gallery {
+  height: 75%;
+}
+
+#scroll-left-full {
+  font-size: 75px;
+  position: absolute;
+  color: #ffffff40;
+  left: 5px;
+  top: 35%;
+}
+
+#scroll-right-full {
+  font-size: 75px;
+  position: absolute;
+  color: #ffffff40;
+  top: 35%;
+  right: 5px;
+}
+
+#scroll-left-full:hover {
+  color: #ffffff99 !important;
+}
+
+#scroll-right-full:hover {
+  color: #ffffff99 !important;
+}
+
+.open-toggle-btn {
+  background-image: url("toggle-full-screen.png");
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+}
+
+.close-toggle-btn {
+  background-image: url("close-full-screen.png");
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+}

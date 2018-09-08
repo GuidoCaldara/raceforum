@@ -1,37 +1,137 @@
 <div class="card py-3 px-4 race-show-card">
 
   <div class="">
-    <p class="mb-0"> <%= race.typo %></p>
-    <h1 class ="mb-0"><%= race.name%></h1>
-    <div class="d-flex justify-content-start">
-      <p class="mr-4"><i class="fas fa-map-marked-alt"></i> <%= city%>, <%=race.state if race.state%></p>
-      <p class="mr-4"> <i class="fas fa-road"></i> <%= race.distance %>Km</p>
-      <% if race.elevation %>
-        <p class="mr-4"><i class="fas fa-sort-amount-up"></i> <%= race.elevation %>m d+</p>
-      <% end %>
-      <p class="mr-4"><i class="far fa-calendar-alt" style="margin-right: 3px"></i><%= race.next_edition.strftime("%d/%m/%Y") %></p>
-      <% if @race.price %>
-      <p class="mr-4"><i class="fas fa-money-bill-wave" style="margin-right: 3px"></i><%= race.price %>€</p>
-      <% if race.website %>
-        <p class=""> <i class="fab fa-chrome"></i><link rel="<%= race.website %>"> Sito Web </link></p>
-      <% end %>
+    <p class="mb-0">
+      <%= race.typo %></p>
+    <h1 class="mb-0"><%= race.name%>
+        </h1>
+        <div class="mb-2" id="race-rating">
+          <% (race.rating).to_i.times do  %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% number = (race.rating).to_s[-1].to_i %>
+            <% if number < 6 && number != 0 %>
+              <i class="fas fa-star-half"></i>
+              <% elsif  number > 6 %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </div>
 
-      <% end %>
+        <div class="d-flex justify-content-start">
+          <p class="mr-4">
+            <i class="fas fa-map-marked-alt"></i>
+            <%= city%>,
+            <%=race.state if race.state%></p>
+          <p class="mr-4">
+            <i class="fas fa-road"></i>
+            <%= race.distance %>Km</p>
+          <% if race.elevation %>
+            <p class="mr-4">
+              <i class="fas fa-sort-amount-up"></i>
+              <%= race.elevation %>m d+</p>
+          <% end %>
+          <p class="mr-4">
+            <i class="far fa-calendar-alt" style="margin-right: 3px"></i><%= race.next_edition.strftime("%d/%m/%Y") %></p>
+          <% if @race.price %>
+            <p class="mr-4">
+              <i class="fas fa-money-bill-wave" style="margin-right: 3px"></i><%= race.price %>€</p>
+            <% if race.website %>
+              <p class="">
+                <i class="fab fa-chrome"></i>
+                <link rel="<%= race.website %>">
+                  Sito Web
+                </link>
+              </p>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="">
+          <!-- If User Signed in!!!!!!!!! -->
+          <button type="button" class="btn medium-btn" name="button" data-toggle="modal" data-target="#photoModal">
+            Aggiungi una foto
+            <i class="fas fa-camera"></i>
+          </button>
+          <button type="button" class="btn medium-btn" data-toggle="modal" data-target="#reviewModal" id="btn-review">
+            Scrivi una recensione
+            <i class="fas fa-pen"></i>
+          </button>
+
+        </div>
+      </div>
+
+      <div class="row mt-3 justify-content-around">
+        <div class="col-sm-8 pt-1">
+
+          <% if @photos.empty? %>
+            <a href="#photoModal" data-toggle="modal" data-target="#photoModal">
+              <div class="photo-container">
+                <div class="camera-photo">
+                  <%= image_tag "camera.png", class:"camera-photo-image" %>
+                  <p>Aggiungi la prima foto!</p>
+                </div>
+              </div>
+            </a>
+          <% else %>
+            <div class="carousel-box">
+              <% photos = @photos_array %>
+                <%= javascript_pack_tag 'image-show' %>
+                <%= content_tag :div, id: 'objects_imgs_data', data: {images: photos} do %>
+              <% end %>
+            </div>
+          <% end %>
+
+        </div>
+        <div class="col-sm-4 pt-1">
+          <div id="show-map" style="height: 360px; width:100%" data-markers="<%= markers.to_json %>"></div>
+        </div>
+
+      </div>
 
     </div>
 
+    <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="photoModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="photoModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for [race, Photo.new] do |f| %>
+            <%= f.input :images, input_html: { multiple: true, direct_upload: true }, label: "Puoi inserire più foto alla volta!"%>
+            <%= f.button :submit, "Carica", class: "btn medium-btn modal-medium-btn" %>
+          <% end %>
+        </div>
+        <div class="w-100"></div>
+      </div>
+    </div>
   </div>
-  <div class="row mt-3 justify-content-around">
-    <div class="col-md-6">
 
+  <!-- Modal -->
+  <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reviewModalLabel">Modal title</h5>
+          <button id="closeReviewModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for ([race, Review.new]), remote: true, html: { class: 'review-form' } do |f| %>
+          <%= render "reviews/rating_stars" %>
+          <%= f.input :title, label:"Dai un titolo alla tua recensione" %>
+          <%= f.input :text, label:"Racconta la tua esperienza" %>
+          <%= f.hidden_field :path_rating, value: 1%>
+          <%= f.hidden_field :organization_rating, value: 1%>
+          <%= f.hidden_field :quality_price_rating, value: 1%>
+          <%= f.hidden_field :difficulty %>
+          <%= f.button :submit, "Lascia la tua recensione" %>
+        <% end %>
 
-    <!-- </div> -->
-    <!-- <div class="col-md-4 pt-5"> -->
+      </div>
     </div>
-    <div class="col-md-6">
-      <div id="show-map" style="height: 260px; width:100%" data-markers="<%= markers.to_json %>"></div>
-    </div>
-
   </div>
-
 </div>
