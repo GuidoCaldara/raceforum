@@ -1,0 +1,23 @@
+<div id="flash_messages" class=" <%= @absolute if @absolute%>">
+  <% flash.each do |key, value| %>
+  <% if @absolute %>
+    <div class=" alert alert-<%= key %> alert-dismissible fade show" role="alert">
+      <div class="">
+        <p> <%= value %></p>
+      </div>
+      <div class="">
+        <button type="button" class="alert-btn close" data-dismiss="alert" aria-label="Close"> Continua<buton>
+      </div>
+    <% else %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <p> <%= value %></p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+    <% end %>
+  </div>
+  <% flash.discard(key) %>
+  <% end %>

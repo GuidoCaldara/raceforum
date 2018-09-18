@@ -1,7 +1,6 @@
 const autoUpload = () => {
 
   addEventListener("direct-upload:initialize", event => {
-    console.log(id);
     const {target, detail} = event
     const {id, file} = detail
     target.insertAdjacentHTML("beforebegin", `

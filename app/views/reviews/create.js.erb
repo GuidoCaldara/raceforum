@@ -3,4 +3,10 @@ document.querySelector("#closeReviewModal").click()
 document.querySelector("#reviewModal").remove()
 document.querySelector("#btn-review").remove()
 document.querySelector("#race-rating").innerText = '<%= @review.race.rating %>'
-document.querySelector(".review-box-container").insertAdjacentHTML("afterBegin",'<%= j render "box_show", review: @review %>')
+document.querySelector(".review-box-container").insertAdjacentHTML("afterBegin",'<%= j render "review_box", review: @review %>')
+
+document.querySelector("body").insertAdjacentHTML("beforebegin", '<%= j render partial: "shared/flash_messages", absolute: @absolute %>')
+var element = document.querySelector("#flash_messages")
+var width = element.offsetWidth
+element.style.top = (window.pageYOffset + window.innerHeight / 2.5) + "px"
+element.style.right = ((window.innerWidth -  width) / 2) + "px"

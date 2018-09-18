@@ -22,12 +22,9 @@ body {
 }
 
 .marker {
-	background-image: url("runner-icon-blu.png");
-	background-size: cover;
-	width: 27px;
-	height: 48px;
 	cursor: pointer;
-	background-position: center;
+	font-size: 35px;
+	color: #3ba6d8;
 }
 
 .direct-upload {

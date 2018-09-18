@@ -1,0 +1,31 @@
+<%= form_for(resource, as: resource_name, url: session_path(:user)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control mb-2", id: "email_signin" %>
+  </div>
+
+  <div class="field">
+    <label for=""> Username</label><br />
+    <%= f.email_field :username, class:"form-control mb-2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class:"form-control mb-2", id: "password_signin" %>
+  </div>
+
+  <div class="actions d-flex justify-content-around">
+    <div class="">
+      <%= f.submit "Log in", class:"my-3 btn medium-btn"%>
+    </div>
+  </div>
+<% end %>
+<p class="text-center">O</p>
+
+<%= link_to user_facebook_omniauth_authorize_path do %>
+<div class="w-75 mx-auto mt-2">
+ <%= image_tag "fb_login.png", class:"w-100" %>
+</div>
+<% end %>
+
+<%= render "users/shared/short_links" %>

@@ -1,0 +1,44 @@
+
+CHECKBOXS
+<div class="d-flex">
+  <div class="">
+    <div class='checkbox'>
+      <input type="checkbox" name="race_distance[]" id="race_distance_" value="0, 21">
+      <p>Fino a 21km</p>
+   </div>
+    <div class='checkbox'><%= check_box_tag 'race_distance[]', "22, 42" %> <p>22km - 42km</p></div>
+  </div>
+  <div class="">
+    <div class='checkbox ml-3'><%= check_box_tag 'race_distance[]', "43, 100" %> <p>42km - 100km</p></div>
+    <div class='checkbox ml-3'><%= check_box_tag 'race_distance[]', "100, 1000" %><p>Oltre 100 km</p> </div>
+  </div>
+</div>
+
+
+
+Bottoni
+
+<div class="d-flex">
+  <div class="">
+    <div class='checkbox'><%= check_box_tag 'typo[]', "Road" %><p>Strada</p> </div>
+    <div class='checkbox'><%= check_box_tag 'typo[]', "Trail" %><p>Trail</p> </div>
+  </div>
+  <div class="">
+    <div class='checkbox ml-3'><%= check_box_tag 'typo[]', "Skyrace" %><p>Skyrace</p></div>
+    <div class='checkbox ml-3'><%= check_box_tag 'typo[]', "Vertical" %><p>Vertical</p></div>
+  </div>
+</div>
+
+
+data
+<LocationSearchBar resetLocation={this.resetLocation} searchLocation={this.searchLocation} locationName={this.state.locationName} />
+
+
+
+
+<h5>Cerca per luogo</h5>
+<div class="d-flex mb-2">
+  <%= f.text_field(:location, value:"", name: "location") %>
+  <button id="loc-search" class="btn medium-btn ml-3" type="button" name="button"><i class="fas fa-search"></i>
+  </button>
+</div>

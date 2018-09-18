@@ -9,8 +9,28 @@
 import {formRace} from "components/new_race_form.js"
 import L from 'leaflet'
 import { renderMap} from "components/show-map.js"
+import { indexMap} from "components/show-map.js"
+import { renderMarkers } from "components/show-map.js"
 import { autoUpload} from "components/auto_upload.js"
-
+import {initMap} from "components/g-map.js"
 formRace()
 renderMap()
 autoUpload()
+indexMap()
+//initMap()
+
+
+
+//
+// document.addEventListener("DOMContentLoaded", function() {
+//
+//   let checkboxes = document.querySelectorAll("input[type=checkbox]");
+//   if (checkboxes != null){
+//     for (let i = 0; i < checkboxes.length; i++) {
+//       checkboxes[i].addEventListener( 'change', function() {
+//           let form = document.getElementById('filter_form');
+//           Rails.fire(form, 'submit');
+//       });
+//     }
+//   }
+// });

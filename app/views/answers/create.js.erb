@@ -1,0 +1,12 @@
+console.log("Hello");
+var targetQuestion = '<%= @answer.question.id %>'
+var answerList = document.querySelector(`#question-${targetQuestion}`)
+var form = document.querySelector(`.form-card-${targetQuestion}-answer`)
+form.insertAdjacentHTML("beforebegin",'<%= j render "answer_and_form", answer: @answer, race: @answer.race, question: @answer.question %>')
+document.querySelector(`.form-card-${targetQuestion}-answer form .answer_text textarea`).value = ""
+
+document.querySelector("body").insertAdjacentHTML("beforebegin", '<%= j render partial: "shared/flash_messages", absolute: @absolute %>')
+var element = document.querySelector("#flash_messages")
+var width = element.offsetWidth
+element.style.top = (window.pageYOffset + window.innerHeight / 2.5) + "px"
+element.style.right = ((window.innerWidth -  width) / 2) + "px"

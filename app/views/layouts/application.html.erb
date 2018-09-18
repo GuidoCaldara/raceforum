@@ -22,10 +22,12 @@
 </head>
 
 <body>
-  <%= render "shared/messages"  %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.gog[:api_geoloc]%>"></script>
+  <script src="https://cdn.jsdelivr.net/npm/places.js@1.10.0"></script>
+  <%= render "shared/navbar" %>
+  <%= render 'shared/flash_messages' if !flash.empty? %>
   <%= yield %>
   <%= javascript_pack_tag "application" %>
-
 </body>
 
 </html>

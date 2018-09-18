@@ -5,26 +5,15 @@
       <%= race.typo %></p>
     <h1 class="mb-0"><%= race.name%>
         </h1>
-        <div class="mb-2" id="race-rating">
-          <% (race.rating).to_i.times do  %>
-            <i class="fas fa-star"></i>
-          <% end %>
-          <% number = (race.rating).to_s[-1].to_i %>
-            <% if number < 6 && number != 0 %>
-              <i class="fas fa-star-half"></i>
-              <% elsif  number > 6 %>
-                <i class="fas fa-star"></i>
-              <% end %>
-            </div>
-
+   <%= render "race_rating_star" , race: race, type: ""%>
         <div class="d-flex justify-content-start">
           <p class="mr-4">
             <i class="fas fa-map-marked-alt"></i>
-            <%= city%>,
+            <%= race.location%>,
             <%=race.state if race.state%></p>
           <p class="mr-4">
             <i class="fas fa-road"></i>
-            <%= race.distance %>Km</p>
+            <%= race.race_distance %>Km</p>
           <% if race.elevation %>
             <p class="mr-4">
               <i class="fas fa-sort-amount-up"></i>
@@ -47,12 +36,16 @@
         </div>
         <div class="">
           <!-- If User Signed in!!!!!!!!! -->
-          <button type="button" class="btn medium-btn" name="button" data-toggle="modal" data-target="#photoModal">
+          <button type="button" class="btn mb-2 medium-btn" name="button" data-toggle="modal" data-target="#photoModal">
             Aggiungi una foto
             <i class="fas fa-camera"></i>
           </button>
-          <button type="button" class="btn medium-btn" data-toggle="modal" data-target="#reviewModal" id="btn-review">
+          <button type="button" class="btn mb-2 medium-btn" data-toggle="modal" data-target="#reviewModal" id="btn-review">
             Scrivi una recensione
+            <i class="fas fa-pen"></i>
+          </button>
+          <button type="button" class="btn mb-2 medium-btn"  id="btn-forum">
+            Chiedi informazioni e partecipa al forum
             <i class="fas fa-pen"></i>
           </button>
 
@@ -62,7 +55,7 @@
       <div class="row mt-3 justify-content-around">
         <div class="col-sm-8 pt-1">
 
-          <% if @photos.empty? %>
+          <% if photos.empty? %>
             <a href="#photoModal" data-toggle="modal" data-target="#photoModal">
               <div class="photo-container">
                 <div class="camera-photo">
@@ -73,7 +66,6 @@
             </a>
           <% else %>
             <div class="carousel-box">
-              <% photos = @photos_array %>
                 <%= javascript_pack_tag 'image-show' %>
                 <%= content_tag :div, id: 'objects_imgs_data', data: {images: photos} do %>
               <% end %>
@@ -94,7 +86,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="photoModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="clo mb-2se" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -109,29 +101,9 @@
     </div>
   </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="reviewModalLabel">Modal title</h5>
-          <button id="closeReviewModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= simple_form_for ([race, Review.new]), remote: true, html: { class: 'review-form' } do |f| %>
-          <%= render "reviews/rating_stars" %>
-          <%= f.input :title, label:"Dai un titolo alla tua recensione" %>
-          <%= f.input :text, label:"Racconta la tua esperienza" %>
-          <%= f.hidden_field :path_rating, value: 1%>
-          <%= f.hidden_field :organization_rating, value: 1%>
-          <%= f.hidden_field :quality_price_rating, value: 1%>
-          <%= f.hidden_field :difficulty %>
-          <%= f.button :submit, "Lascia la tua recensione" %>
-        <% end %>
-
-      </div>
-    </div>
-  </div>
-</div>
+  <script type="text/javascript">
+    document.querySelector("#btn-forum").addEventListener("click", function(){
+      location.href='#pills-profile-tab'
+      document.querySelector("#pills-profile-tab").click()
+    })
+  </script>

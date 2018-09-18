@@ -3,11 +3,12 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @race = Race.find(params[:race_id])
     @review.race = @race
-    @review.user = User.first
+    @review.user = current_user
+    @absolute = "absolute-flash"
     if @review.save
       respond_to do |format|
           format.html { render "races/show" }
-          format.js
+          format.js {flash[:success] = "La tua recensione è stata inserita!"}
       end
     end
   end

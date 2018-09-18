@@ -1,0 +1,23 @@
+.absolute-flash{
+  position: absolute;
+  z-index: 50;
+  .alert{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+  }
+
+}
+
+.alert-dismissible .close{
+  position: relative;
+}
+
+
+.alert-btn{
+  border: 1px solid;
+border-radius: 0.25rem;
+
+}

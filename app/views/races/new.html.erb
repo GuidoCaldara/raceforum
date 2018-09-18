@@ -1,4 +1,3 @@
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.10.0"></script>
 
 <div class="container-fluid race-form-container">
   <div class="row">
@@ -22,7 +21,7 @@
           <%= f.hidden_field :typo, label: "Tipo di gara", value: "" %>
           <div class="row">
             <div class="col-6">
-              <%= f.input :distance, label:"Distanza in Km", input_html: { min: '5', max:"350", step: 'any' } %>
+              <%= f.input :race_distance, label:"Distanza in Km", input_html: { min: '5', max:"350", step: 'any' } %>
             </div>
             <div class="col-6">
               <%= f.input :elevation, label:"Dislivello positivo", placeholder: "In metri", input_html: { min: '100', max:"35000", step: '100' } %>

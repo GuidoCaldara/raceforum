@@ -14,11 +14,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'react-rails'
 gem "mini_magick"
-
+gem 'mapbox-gl-rails'
 gem 'devise'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
-gem 'geocoder', '~> 1.3', '>= 1.3.7'
+gem 'geocoder'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'omniauth-facebook'
 gem "pundit"

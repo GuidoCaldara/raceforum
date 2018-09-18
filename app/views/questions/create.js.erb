@@ -1,0 +1,8 @@
+document.querySelector("#accordion_question_form").remove()
+document.querySelector("#accordion_question").insertAdjacentHTML("beforebegin",'<%= j render "question_box", question: @question, race: @question.race%>')
+
+document.querySelector("body").insertAdjacentHTML("beforebegin", '<%= j render partial: "shared/flash_messages", absolute: @absolute %>')
+var element = document.querySelector("#flash_messages")
+var width = element.offsetWidth
+element.style.top = (window.pageYOffset + window.innerHeight / 2.5) + "px"
+element.style.right = ((window.innerWidth -  width) / 2) + "px"

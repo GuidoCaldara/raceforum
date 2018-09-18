@@ -1,0 +1,45 @@
+.image-card-background {
+  height: 170px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-wrapper-race{
+  margin-bottom: 15px
+}
+
+.card-wrapper-race:hover{
+  -webkit-box-shadow: 0px 0px 7px 3px #61B6FF;
+box-shadow: 0px 0px 7px 3px #61B6FF;
+}
+
+.small-stars-box{
+  margin-bottom: 0px !important;
+  .fas {
+    font-size: 13px !important;
+  }
+}
+
+.race-card-index{
+  p{
+    font-size: 13px;
+    margin: 0px
+  }
+}
+.race-info-card{
+  font-size: 13px
+}
+
+.link-index-card{
+
+      color: #484848 !important;
+    text-decoration: none;
+}
+
+.link-index-card:hover{
+
+      color: #484848 !important;
+    text-decoration: none;
+}

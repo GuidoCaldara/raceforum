@@ -1,0 +1,49 @@
+<div id="accordion_question" class="review-form-box">
+  <div class="card review-card-collapse">
+    <div class="card-header card-header-review p-0" id="review-accordion">
+      <h5 class="mb-0">
+        <button class="button-question btn-review btn-question btn btn-link collapsed" data-toggle="collapse" data-target="#question-<%= question.id %>" aria-expanded="false" aria-controls="question-<%= question.id %>">
+          <%= question.title %>
+          <br>
+          <span class="question-info">Post di:
+            <%= question.user.username %>
+            inserito il
+            <%= question.created_at.strftime("%d/%m/%Y") %></span>
+        </button>
+      </h5>
+    </div>
+    <div id="question-<%= question.id %>" class="collapse" aria-labelledby="review-accordion" data-parent="#accordion_question">
+        <div class="text-question-small-container">
+          <p class="mb-1"><%= question.text %></p>
+        </div>
+      <% question.answers.order(created_at: :asc).each do |a| %>
+        <div id="answer-<%=a.id%>-body" class=" pl-5 card-body answer-body">
+          <span class="answer-info"><%= a.user.username %>
+            ha risposto:</span>
+          <p class="mb-0 answer-text"><%= a.text %></p>
+          <span class="question-info">
+            <%= a.created_at.strftime("%d/%m/%Y") %></span>
+          <% if user_signed_in? && a.user == current_user%>
+            <%= link_to delete_answer_path(a), method: :delete, remote: true, data: {confirm: "Sei sicuro di voler eliminare la tua risposta?"} do %>
+            <span class="question-info">
+              Rimuovi</span>
+
+          <% end %>
+        <% end %>
+
+      </div>
+    <% end %>
+    <div class="card-body answer-body form-card-<%= question.id %>-answer">
+      <%= simple_form_for ([race, question, Answer.new]), remote: true, html: { class: " question-#{question.id}-answer", id: "new_answer_#{question.id}"} do |f|%>
+      <%= f.input :text, label: "Rispondi alla conversazione", input_html: {id: "answer_text_#{question.id}"}%>
+      <div class="">
+        <%= f.button :submit, "Rispondi", class:"btn medium-btn"%>
+      </div>
+
+    <% end %>
+  </div>
+
+</div>
+
+</div>
+</div>
