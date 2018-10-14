@@ -1,0 +1,17 @@
+<div id="review-form-modal" class="modal">
+  <div class="modal-content">
+    <a id="close-review-form-modal" class="close-modal-icon">
+      <i class="small material-icons">close</i>
+    </a>
+    <%= simple_form_for ([race, Review.new]), remote: true, html: { class: 'review-form' } do |f| %>
+    <%= render "reviews/rating_stars" %>
+    <%= f.input :title, label:"Dai un titolo alla tua recensione" %>
+    <%= f.input :text, label:"Racconta la tua esperienza" %>
+    <%= f.hidden_field :path_rating, value: 1%>
+    <%= f.hidden_field :organization_rating, value: 1%>
+    <%= f.hidden_field :quality_price_rating, value: 1%>
+    <%= f.hidden_field :difficulty %>
+    <%= f.button :submit, "Lascia la tua recensione" %>
+  <% end %>
+</div>
+</div>

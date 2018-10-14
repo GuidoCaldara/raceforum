@@ -1,3 +1,22 @@
+.modal-full-screen-photos {
+  width: 100% !important;
+  max-height: 100vh !important;
+  background-color: black;
+  opacity: 0.7;
+  top: 0 !important;
+  overflow-y: none !important;
+}
+
+.go-full-screen-icon {
+  color: #e8e8e8;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.go-full-screen-icon:hover {
+cursor: pointer;}
+
+
 .carousel-box {
   margin-bottom: 20px;
   width: 100%;

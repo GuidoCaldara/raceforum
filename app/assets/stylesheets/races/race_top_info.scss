@@ -1,0 +1,81 @@
+.upper-title-show-card-box {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+
+.rating-star {
+  color: #30b9ff;
+}
+
+.race-title {
+  margin-top: 0;
+  margin-bottom: 5px !important;
+}
+
+.race-info-show-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  p {
+    margin-right: 25px !important;
+    margin-bottom: 6px !important
+  }
+}
+
+.map-carousel-row {
+  margin-top: 20px;
+}
+
+.col-photo-show {
+  margin-bottom: 15px;
+  padding-bottom: 15px
+}
+
+.button-action-race-show {
+    margin-top: 8px;
+  a {
+    margin-left: 5px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+  }
+}
+
+.photo-container {
+  height: 360px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.80)), url("race-no-photo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.camera-photo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	i {
+		color: #30b9ff;
+	}
+
+	p {
+		color: #30b9ff;
+	}
+}
+
+#race-rating{
+  i{
+    font-size: 25px
+  }
+}
+
+
+.button-action-race-show{
+  button{
+    margin-bottom: 8px
+  }
+}

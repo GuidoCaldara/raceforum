@@ -25,6 +25,8 @@ gem "pundit"
 gem 'simple_form'
 gem "google-cloud-storage", "~> 1.11", require: false
 gem 'image_processing', '~> 1.2'
+gem 'materialize-sass', '~> 1.0.0'
+gem 'material_icons' 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

@@ -1,11 +1,11 @@
-<div class="mb-2 <%= type %>" id="race-rating">
+<div id="race-rating">
   <% (race.rating).to_i.times do  %>
-    <i class="fas fa-star"></i>
+    <i class="tiny rating-star material-icons">star</i>
   <% end %>
   <% number = (race.rating).to_s[-1].to_i %>
     <% if number < 6 && number != 0 %>
-      <i class="<%= type %> fas fa-star-half"></i>
+      <i class="tiny rating-star material-icons">star_half</i>
       <% elsif  number > 6 %>
-        <i class="<%= type %> fas fa-star"></i>
+        <i class="tiny rating-star material-icons">star</i>
       <% end %>
-  </div>
+    </div>

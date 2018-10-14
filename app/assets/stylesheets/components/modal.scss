@@ -1,11 +1,19 @@
-.modal-header{
-  padding: 10px;
-}
+// .modal-header{
+//   padding: 10px;
+// }
+//
+// .modal-footer{
+//   padding: 10px
+// }
+//
+// .modal-content{
+//       border-radius: 0.25rem;
+// }
 
-.modal-footer{
-  padding: 10px
-}
-
-.modal-content{
-      border-radius: 0.25rem;
+.close-form-modal {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }

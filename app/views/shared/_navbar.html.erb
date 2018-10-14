@@ -1,53 +1,57 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="justify-content-end collapse navbar-collapse" id="navbarNav">
-    <div class="">
-      <ul class="navbar-nav">
-        <div class="">
-          <li class="nav-item">
-            <% if user_signed_in? %>
-              <%= link_to "Logout", destroy_user_session_path, class:"nav-link", method: :delete %>
-            <% else %>
-              <a class="nav-link disabled" data-toggle="modal" data-target="#loginModal">Login</a>
-            <%end%>
-          </li>
-        </div>
-      </ul>
-
-    </div>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "Logout", destroy_user_session_path, class:"nav-link", method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <a class="open-signin-modal-form">Accedi</a>
+        </li>
+        <li>
+          <a class="open-signup-modal-form">Registrati</a>
+        </li>
+      <%end%>
+    </ul>
   </div>
 </nav>
 
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="mt-0">
-        <nav>
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item py-3 nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Accedi</a>
-            <a class="nav-item py-3 nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Iscriviti</a>
-          </div>
-          <div class="mr-3">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; top: 9px; right: 25px;">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </nav>
-      </div>
-      <div class="modal-body">
-        <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <%= render "users/sessions/new", resource: User.new %>
-          </div>
-          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-          <%= render "users/registrations/new", resource: User.new %>
-          </div>
-        </div>
+<ul class="sidenav" id="mobile-demo">
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to "Logout", destroy_user_session_path, class:"nav-link", method: :delete %>
+    </li>
+  <% else %>
+    <li>
+      <a class="login-modal open-signin-modal-form" >Accedi</a>
+    </li>
+    <li>
+      <a class="login-modal open-signup-modal-form" >Registrati</a>
+    </li>
+  <%end%>
+</ul>
 
-      </div>
-    </div>
+<div id="signin-modal-form" class="modal">
+  <div class="modal-content">
+        <a id="close-signin-form-modal" class="close-modal-icon">
+        <i class="small material-icons">close</i>
+      </a>
+    <%= render "users/sessions/new", resource: User.new %>
+  </div>
+  <div class="modal-footer">
   </div>
 </div>
+<div id="signup-modal-form" class="modal">
+  <div class="modal-content">
+        <a id="close-signup-form-modal" class="close-modal-icon">
+        <i class="small material-icons">close</i>
+      </a>
+    <%= render "users/registrations/new", resource: User.new %>
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>
+

@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  
   def create
     @answer = Answer.new(text: params[:answer][:text])
     @answer.user = current_user
@@ -9,7 +10,6 @@ class AnswersController < ApplicationController
       respond_to do |format|
         format.html { render 'races/show' }
         format.js {flash[:success] = "La tua risposta è stata inserita!"}
-
       end
     end
   end

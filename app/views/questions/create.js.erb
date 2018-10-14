@@ -1,5 +1,5 @@
-document.querySelector("#accordion_question_form").remove()
-document.querySelector("#accordion_question").insertAdjacentHTML("beforebegin",'<%= j render "question_box", question: @question, race: @question.race%>')
+document.querySelector("#close-question-form-modal").click()
+document.querySelector(".post-form").insertAdjacentHTML("beforebegin",'<%= j render "question_box", question: @question, race: @question.race%>')
 
 document.querySelector("body").insertAdjacentHTML("beforebegin", '<%= j render partial: "shared/flash_messages", absolute: @absolute %>')
 var element = document.querySelector("#flash_messages")

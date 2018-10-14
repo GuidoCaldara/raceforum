@@ -1,0 +1,11 @@
+  <div id="photo-form-modal" class="modal form-modal-show">
+    <div class="modal-content">
+      <a id="close-photo-form-modal" class="close-modal-icon">
+        <i class="small material-icons">close</i>
+      </a>
+      <%= simple_form_for [race, Photo.new] do |f| %>
+      <%= f.input :images, input_html: { multiple: true, direct_upload: true }, label: "Puoi inserire più foto alla volta"%>
+      <%= f.button :submit, "Carica", class: "btn" %>
+    <% end %>
+  </div>
+</div>
