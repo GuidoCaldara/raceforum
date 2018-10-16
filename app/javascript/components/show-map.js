@@ -5,7 +5,7 @@ const renderMap = () => {
   if (mapContainer != null ){
     const m = JSON.parse(mapContainer.dataset.markers)
     var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZ3VpZG9jYWxkYXJhIiwiYSI6ImNqbHB3dTBhODA2MDEzdnRhc2cxYmhqb3MifQ.LhCv9m9kuHP5uXeU14lkeA';
+    mapboxgl.accessToken = 'pk..LhCv9m9kuHP5uXeU14lkeA';
 
 
     var map = new mapboxgl.Map({
