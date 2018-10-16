@@ -3,7 +3,6 @@ function renderMap() {
   if (mapContainer != null ){
     const m = JSON.parse(mapContainer.dataset.markers)
     var myLatLng = m
-
     var map = new google.maps.Map(mapContainer, {
       zoom: 8,
       center: myLatLng
