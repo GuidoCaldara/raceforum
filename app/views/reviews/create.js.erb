@@ -1,9 +1,8 @@
-document.querySelector(".review-form-box").remove()
-document.querySelector("#closeReviewModal").click()
-document.querySelector("#reviewModal").remove()
-document.querySelector("#btn-review").remove()
+document.querySelector("#close-review-form-modal").click()
+document.querySelector("#review-form-modal").remove()
+document.querySelector("#open-review-form-modal").remove()
 document.querySelector("#race-rating").innerText = '<%= @review.race.rating %>'
-document.querySelector(".review-box-container").insertAdjacentHTML("afterBegin",'<%= j render "review_box", review: @review %>')
+document.querySelector("#review-swipe").insertAdjacentHTML("afterbegin",'<%= j render "review_box", review: @review %>')
 
 document.querySelector("body").insertAdjacentHTML("beforebegin", '<%= j render partial: "shared/flash_messages", absolute: @absolute %>')
 var element = document.querySelector("#flash_messages")

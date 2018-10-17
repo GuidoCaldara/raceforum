@@ -20,10 +20,10 @@ end
  scope :filter_by_min_date, -> (date) {where("next_edition > ?", date) }
  scope :filter_by_max_date, -> (date) {where("next_edition < ?", date) }
 
+ def short_name
+   "#{self.name[0..20]}..." if self.name.length > 25
+ end
 
-def testtest
-  "Hello"
-end
   def set_distance_type
     if self.race_distance <= 21
       self.distance_type = "short"

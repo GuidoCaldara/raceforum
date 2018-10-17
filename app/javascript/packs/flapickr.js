@@ -10,7 +10,12 @@ class Calendar extends Component {
     };
   }
 
+
   render() {
+    let x = new Date()
+    let minDefaultDate = x.toISOString().substring(0, 10)
+    let maxDefaultDate = (new Date(date.setDate(date.getDate()+100))).toISOString().substring(0, 10)
+
     const { date } = this.state;
     return (
       <Flatpickr 

@@ -1,0 +1,13 @@
+const PhotoFullContainer = (props) => {
+  return (
+    <div className="modal fade" data-keyboard="false" data-backdrop="static" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal-dialog photo-big-modal" role="document">
+      <div className="modal-content photo-gallery-modal">
+        <div className="modal-body modal-gallery-body">
+          <MainImage moveRight={props.moveRight} moveLeft={props.moveLeft} background={props.background} actionModal={props.closeModal} open={props.open}/>
+          <SmallImagesBox changeMainImg={props.changeMainImg} images={props.images} open={props.open}/>
+        </div>
+      </div>
+    </div>
+  </div>)
+}

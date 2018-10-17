@@ -1,0 +1,27 @@
+.photo_images {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #484848;
+    margin-bottom: 6px;
+    font-size: 15px;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+}
+
+.close-modal-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #484848;
+}
+
+.close-modal-icon:hover {
+  cursor: pointer;
+}

@@ -1,26 +1,44 @@
-@import "bootstrap";
+@import "materialize/components/color-variables";
+$primary-color: color("blue", "lighten-2") !default;
+$secondary-color:  color("materialize-red", "lighten-2") !default;
+
+@import "materialize";
 @import "typography";
 @import "components/index";
 @import "races/index";
 @import "questions/index";
 @import "reviews/index";
+@import "answers/index";
 
-body {
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
-	color: #484848;
-}
 
-.container-fluid {
-	padding-top: 30px;
-	padding-bottom: 30px;
-}
+
 
 .container {
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
 
+.modal{
+max-height: none !important
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 85% !important;
+  }
+}
+
+.d-flex{
+	display: flex !important;
+}
+
+.flex-column{
+	flex-direction: column !important
+}
+
+.justify-content-between{
+	justify-content: space-between;
+}
 .marker {
 	cursor: pointer;
 	font-size: 35px;

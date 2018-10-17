@@ -7,31 +7,28 @@
 }
 
 .review-form{
-	input{
-		border: 1px solid #c3c0c0;
-		border-radius: 0px;
-		font-weight: 300;
-		color: gray;
-	}
-	input:focus{
-	border-color: black;
-	box-shadow: none;
-	border: 1px solid gray;
-	}
+// 	input{
+// 		border: 1px solid #c3c0c0;
+// 		border-radius: 0px;
+// 		font-weight: 300;
+// 		color: gray;
+// 	}
+// 	input:focus{
+// 	border-color: black;
+// 	box-shadow: none;
+// 	border: 1px solid gray;
+// 	}
 	textarea{
-		border: 1px solid #c3c0c0;
 		border-radius: 0px;
 		min-height: 160px;
-		font-weight: 300;
-		color: gray;
 
 	}
-	textarea:focus{
-	border-color: black;
-	box-shadow: none;
-	border: 1px solid gray;
-	}
-
+	// textarea:focus{
+	// border-color: black;
+	// box-shadow: none;
+	// border: 1px solid gray;
+	// }
+//
 }
 
 .fa-star{

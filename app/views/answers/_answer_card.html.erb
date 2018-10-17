@@ -1,13 +1,13 @@
 <div id="answer-<%=answer.id%>-body" class=" pl-5 card-body answer-body">
   <span class="answer-info"><%= answer.user.username %>
     ha risposto:</span>
-  <p class="mb-0 answer-text"><%= answer.text %></p>
+  <p class="answer-text"><%= answer.text %></p>
   <span class="question-info">
     <%= answer.created_at.strftime("%d/%m/%Y") %></span>
-    <% if user_signed_in? && answer.user == current_user%>
+  <% if user_signed_in? && answer.user == current_user%>
     <%= link_to delete_answer_path(answer), method: :delete, remote: true, data: {confirm: "Sei sicuro di voler eliminare la tua risposta?"} do %>
     <span class="question-info">
       Rimuovi</span>
-    <% end %>
-   <% end %>
+  <% end %>
+<% end %>
 </div>

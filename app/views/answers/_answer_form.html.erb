@@ -1,0 +1,6 @@
+<%= simple_form_for ([race, question, Answer.new]), remote: true, html: { class: " question-#{question.id}-answer", id: "new_answer_#{question.id}"} do |f|%>
+<%= f.input :text, label: "Rispondi alla conversazione", input_html: {id: "answer_text_#{question.id}"}%>
+<div class="">
+  <%= f.button :submit, "Rispondi", class:"btn "%>
+</div>
+<% end %>

@@ -53,13 +53,20 @@ class Slider extends React.Component {
   }
 
   changeFullBackground(e) {
-    document.querySelector(".modal-backdrop").style.opacity = "1"
+    let elem = document.querySelector("#modalFullPhoto")
+    M.Modal.init(elem, { dismissible: false})
+    var instance = M.Modal.getInstance(elem);
+    instance.open();
     this.setState(() => {
       return {fullScreen: true}
     })
   }
 
   closeModal(e) {
+    let elem = document.querySelector("#modalFullPhoto")
+    var instance = M.Modal.getInstance(elem);
+    instance.close();
+
     this.setState(() => {
       return {fullScreen: false}
     })
@@ -78,16 +85,19 @@ class Slider extends React.Component {
 }
 
 const PhotoFullContainer = (props) => {
-  return (<div className="modal fade" data-keyboard="false" data-backdrop="static" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div className="modal-dialog photo-big-modal" role="document">
-      <div className="modal-content photo-gallery-modal">
-        <div className="modal-body modal-gallery-body">
-          <MainImage moveRight={props.moveRight} moveLeft={props.moveLeft} background={props.background} actionModal={props.closeModal} open={props.open}/>
-          <SmallImagesBox changeMainImg={props.changeMainImg} images={props.images} open={props.open}/>
+  return (
+    <div id="modalFullPhoto" className="modal modal-full-screen-photos">
+      <div className="modal-content">
+        <div className="photo-big-modal">
+            <div className="modal-body modal-gallery-body">
+              <MainImage moveRight={props.moveRight} moveLeft={props.moveLeft} background={props.background} actionModal={props.closeModal} open={props.open}/>
+              <SmallImagesBox changeMainImg={props.changeMainImg} images={props.images} open={props.open}/>
+          </div>
         </div>
       </div>
     </div>
-  </div>)
+
+)
 }
 
 class MainImage extends React.Component {
@@ -97,20 +107,21 @@ class MainImage extends React.Component {
   render() {
     let dataDismiss = ""
     let funct = this.props.actionModal
-    let icon = "full-screen-icon open-toggle-btn"
+    let screen_size = "fullscreen"
     let className = "main-image-container"
     if (this.props.open) {
       dataDismiss = "modal"
-      icon = "full-screen-icon close-toggle-btn"
+      screen_size = "fullscreen_exit"
       className = "main-image-container full-screen-gallery"
     }
     let divStyle = {
       backgroundImage: 'url(' + this.props.background + ')'
     };
     return (<div className={className} style={divStyle}>
-      <i onClick={this.props.moveLeft} id="scroll-left-full" className="fas fa-caret-left scroll-full"></i>
-      <i onClick={this.props.moveRight} id="scroll-right-full" className="fas fa-caret-right scroll-full"></i>
-      <div onClick={funct} data-value={this.props.background} className={icon} data-toggle="modal" data-target="#exampleModal" data-dismiss={dataDismiss}></div>
+        <i onClick={this.props.moveLeft} id="scroll-left-full" className="go-full-screen-icon medium material-icons">keyboard_arrow_left</i>
+        <i onClick={this.props.moveRight} id="scroll-right-full" className="go-full-screen-icon medium material-icons">keyboard_arrow_right</i>
+      <div onClick={funct} data-value={this.props.background} data-toggle="modal" data-dismiss={dataDismiss}></div>
+      <i onClick={funct} className="go-full-screen-icon medium material-icons">{screen_size}</i>
     </div>)
   }
 }

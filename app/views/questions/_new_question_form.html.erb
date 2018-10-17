@@ -1,22 +1,16 @@
-<div id="accordion_question_form" class ="review-form-box mb-3">
-  <div class="card review-card-collapse">
-    <div class="card-header card-header-review p-0" id="review-accordion">
-      <h5 class="mb-0">
-        <button class="btn-review btn btn-link collapsed" data-toggle="collapse" data-target="#reviewCollapse" aria-expanded="false" aria-controls="reviewCollapse">
-          Inserisci un nuovo post
-          <i class="ml-2 fas fa-pen"></i>
-        </button>
-      </h5>
-    </div>
 
-    <div id="reviewCollapse" class="collapse" aria-labelledby="review-accordion" data-parent="#accordion_question_form">
-      <div class="card-body">
-        <%= simple_form_for ([race, Question.new]), remote: true, html: { class: 'question-form' } do |f| %>
-        <%= f.input :title, label:"Titolo del post" %>
-        <%= f.input :text, label:"Testo" %>
-        <%= f.button :submit, "Inserisci", class:"btn medium-btn" %>
-      <% end %>
-    </div>
-  </div>
+<button id="open-question-form-modal" class="btn"><i class="material-icons right">rate_review</i>Aggiungi un post</button>
+
+
+<div id="question-form-modal" class="modal">
+  <div class="modal-content">
+    <a id="close-question-form-modal" class="close-modal-icon">
+      <i class="small material-icons">close</i>
+    </a>
+    <%= simple_form_for ([race, Question.new]), remote: true, html: { class: 'question-form' } do |f| %>
+    <%= f.input :title, label:"Titolo del post" %>
+    <%= f.input :text, label:"Testo" %>
+    <%= f.button :submit, "Inserisci", class:"btn" %>
+  <% end %>
 </div>
 </div>

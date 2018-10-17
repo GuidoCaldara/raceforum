@@ -1,16 +1,109 @@
 .filter-row {
-  position: sticky;
+  //position: sticky;
   top: 0;
   z-index: 5;
-  background: #f5f5f5;
-  border-bottom: 1px solid #e0e0e0;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
+.location-container {
+  //padding: 10px 25px;
+  button {
+    margin-right: 10px;
+  }
+}
 
-.reset-btn{
+.star-blue-card{
+  color: #30b9ff;
+
+}
+
+.container-search-bar {
+  p {
+    font-size: 18px;
+    margin-bottom: 0;
+    display: inline;
+    margin-right: 10px;
+  }
+}
+
+.checkbox-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%
+}
+
+.d-flex-filter {
+  width: 100%;
+  display: flex
+}
+.flatpickr-input{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42) !important;
+  width: 90% !important;
+
+
+}
+@media screen and (max-width: 663px) {
+  .d-flex-filter {
+    display: flex;
+    margin-bottom: 10px
+  }
+
+  .reset-all-button {
+    margin: 0 !important;
+  }
+
+}
+
+.location-col-btn {
+  display: flex;
+  button{
+    margin-top: 0px;
+    margin-bottom: 0px
+  }
+}
+
+.map-col {
+  position: sticky;
+  top: 0;
+}
+
+.title-search {
+  padding-bottom: 5px;
+}
+
+.search-location-btn {
+  margin-left: 5px;
+}
+
+.location-col {
+  margin-left: 10px !important;
+}
+
+.reset-btn {
   background: red;
-color: white !important;
-border: none;
-padding: 5px;
-font-size: 15px;
+  color: white !important;
+  border: none;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.col-searchbar {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkBoxSpan {
+  padding-left: 25px !important;
+  padding-right: 10px;
+  font-size: 14px !important;
+  color: #5a5a5a;
+}
+
+.search-filter-title {
+  margin-bottom: 5px;
+}
+
+.date-column {
+  padding-bottom: 5px;
 }

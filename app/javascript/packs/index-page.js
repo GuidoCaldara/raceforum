@@ -285,9 +285,15 @@ class IndexPage extends React.Component {
     races = this.orderByDate(races)
     let markers = races.map(item => { return { lat: item.latitude, lng: item.longitude } });
     return (<div>
+<<<<<<< HEAD
+      <Place resetSearch={this.resetSearch} resetLocation={this.resetLocation} getCordinates={this.getCordinates} filterDate={this.filterDate} selectedDate={this.state.selectedDate} resetDate={this.resetDate} locationValueDefault={this.state.locationValueDefault}/>
+      <ButtonsContainer selectSeason={this.selectSeason} selectedDate={this.state.selectedDate} searchRaces={this.searchRaces} filteredRaces={this.state.filteredRaces} filterDate={this.filterDate} filterType={this.filterType} filterDistance={this.filterDistance} resetDate={this.resetDate} startDate={this.state.startDate}/>
+      <DisplayRaces markers={ markers} races={races}/>
+=======
       <Place resetSearch={this.resetSearch} resetLocation={this.resetLocation} getCordinates={this.getCordinates} filterDate={this.filterDate} selectedDate={this.state.selectedDate} resetDate={this.resetDate} locationValueDefault={this.state.locationValueDefault} />
       <ButtonsContainer selectSeason={this.selectSeason} selectedDate={this.state.selectedDate} searchRaces={this.searchRaces} filteredRaces={this.state.filteredRaces} filterDate={this.filterDate} filterType={this.filterType} filterDistance={this.filterDistance} resetDate={this.resetDate} startDate={this.state.startDate} />
       <DisplayRaces markers={markers} races={races} />
+>>>>>>> master
     </div>);
   }
 }
@@ -313,12 +319,12 @@ const ButtonsContainer = (props) => {
       </div>
       <div className="d-flex-filter">
         <div className="checkbox-container">
-          <CheckBox functionClick={props.searchRaces} name="race_distance" value="short" label="Da 0 a 21 Km" />
-          <CheckBox functionClick={props.searchRaces} name="race_distance" value="medium" label="Da 22 a 42,195 km" />
+          <CheckBox functionClick={props.searchRaces} name="race_distance" value="short" label="Da 0 a 21 Km"/>
+          <CheckBox functionClick={props.searchRaces} name="race_distance" value="medium" label="Da 22 a 42,195 km"/>
         </div>
         <div className="checkbox-container">
-          <CheckBox functionClick={props.searchRaces} name="race_distance" value="long" label="Da 42 a 100 Km" />
-          <CheckBox functionClick={props.searchRaces} name="race_distance" value="ultra" label="Oltre i 100 Km" />
+          <CheckBox functionClick={props.searchRaces} name="race_distance" value="long" label="Da 42 a 100 Km"/>
+          <CheckBox functionClick={props.searchRaces} name="race_distance" value="ultra" label="Oltre i 100 Km"/>
         </div>
       </div>
     </div>
@@ -328,12 +334,12 @@ const ButtonsContainer = (props) => {
       </div>
       <div className="d-flex-filter">
         <div className="checkbox-container">
-          <CheckBox functionClick={props.searchRaces} name="typo" value="skyrace" label="Skyrace" />
-          <CheckBox functionClick={props.searchRaces} name="typo" value="vertical" label="Vertical" />
+          <CheckBox functionClick={props.searchRaces} name="typo" value="skyrace" label="Skyrace"/>
+          <CheckBox functionClick={props.searchRaces} name="typo" value="vertical" label="Vertical"/>
         </div>
         <div className="checkbox-container">
-          <CheckBox functionClick={props.searchRaces} name="typo" value="trail" label="Trail" />
-          <CheckBox functionClick={props.searchRaces} name="typo" value="race" label="Race" />
+          <CheckBox functionClick={props.searchRaces} name="typo" value="trail" label="Trail"/>
+          <CheckBox functionClick={props.searchRaces} name="typo" value="race" label="Race"/>
         </div>
       </div>
 
@@ -344,12 +350,12 @@ const ButtonsContainer = (props) => {
       </div>
       <div className="d-flex-filter">
         <div className="checkbox-container">
-          <CheckBox functionClick={selectSeason} classval="season-check" name="season" value="summer" data-value="1" label="Estate" />
-          <CheckBox functionClick={selectSeason} classval="season-check" name="season" value="spring" data-value="2" label="Primavera" />
+          <CheckBox functionClick={selectSeason} classval="season-check" name="season" value="summer" data-value = "1" label="Estate"/>
+          <CheckBox functionClick={selectSeason} classval="season-check" name="season" value="spring" data-value = "2"  label="Primavera"/>
         </div>
         <div className="checkbox-container">
-          <CheckBox functionClick={selectSeason} classval="season-check" name="season" value="autumn" data-value="3" label="Autunno" />
-          <CheckBox functionClick={selectSeason} classval="season-check" name="season" value="winter" data-value="4" label="Inverno" />
+          <CheckBox functionClick={selectSeason} classval="season-check" name="season" value="autumn" data-value = "3"  label="Autunno"/>
+          <CheckBox functionClick={selectSeason} classval="season-check" name="season" value="winter" data-value = "4" label="Inverno"/>
         </div>
       </div>
     </div>
@@ -389,19 +395,19 @@ class Place extends React.Component {
     this.props.resetSearch()
   }
 
-  resetLocation() {
-    this.setState(() => {
-      return { value: "" }
-    })
-    this.props.resetLocation()
-  }
+    resetLocation(){
+      this.setState(() => {
+        return {value: ""}
+      })
+     this.props.resetLocation()
+   }
 
-  render() {
-    let date = new Date()
-    let minDefaultDate = date.toISOString().substring(0, 10)
-    let maxDefaultDate = (new Date(date.setDate(date.getDate() + 100))).toISOString().substring(0, 10)
-    return (
-      <div>
+    render() {
+      let date = new Date()
+      let minDefaultDate = date.toISOString().substring(0, 10)
+      let maxDefaultDate = (new Date(date.setDate(date.getDate()+100))).toISOString().substring(0, 10)
+      return (
+        <div>
         <div className="row location-container mb-2">
           <div className="location-col col l6 m12 s12">
             <h5>Luogo</h5>
@@ -412,16 +418,16 @@ class Place extends React.Component {
             </form>
           </div>
           <div className="d-flex flex-column location-col location-col-btn col l5 m6 s12">
-            <h5 className="">Data</h5>
+              <h5 className="">Data</h5>
             <div className="d-flex-filter">
               <Flatpickr onChange={this.props.filterDate} options={{
-                mode: "range",
-                enableTime: false,
-                altInput: true,
-                altFormat: "F j, Y",
-                dateFormat: "Y-m-d",
-                defaultDate: [minDefaultDate, maxDefaultDate]
-              }} className="" />
+                  mode: "range",
+                  enableTime: false,
+                  altInput: true,
+                  altFormat: "F j, Y",
+                  dateFormat: "Y-m-d",
+                  defaultDate: [minDefaultDate, maxDefaultDate]
+                }} className="" />
             </div>
           </div>
         </div>
@@ -432,11 +438,11 @@ class Place extends React.Component {
 const Stars = (props) => {
   const n = parseInt(props.rating.toString().split(".")[0])
   const h = (parseInt(props.rating.toString().split(".")[1]) > 5)
-  let full_stars = [...Array(n)].map((e, i) => <i key={i} className="star-blue-card tiny material-icons">star</i>)
+  let full_stars = [...Array(n)].map((e, i) =><i key={i} className="star-blue-card tiny material-icons">star</i>)
   return (
     <div className="mb-2 small-stars-box" id="race-rating">
       {full_stars}
-      {h ? <i className="star-blue-card tiny material-icons">star</i> : <i className="star-blue-card tiny material-icons">star_half</i>}
+      { h ? <i className="star-blue-card tiny material-icons">star</i> :<i className="star-blue-card tiny material-icons">star_half</i> }
     </div>
   )
 }
@@ -450,11 +456,11 @@ const CheckBox = (props) => {
   return (
     <label>
       <div className='checkbox'>
-        <input className={classattributes} onChange={props.functionClick} data-type={props.name} type="checkbox" name={name} id={id} value={props.value} />
-        <span className="checkBoxSpan">{props.label}</span>
-      </div>
+      <input className={classattributes} onChange={props.functionClick} data-type={props.name} type="checkbox" name={name} id={id} value={props.value}/>
+      <span className="checkBoxSpan">{props.label}</span>
+    </div>
     </label>
-  )
+)
 }
 
 const RaceCard = (props) => {
@@ -486,29 +492,27 @@ const RaceCard = (props) => {
 
   let divStyle = {
     backgroundImage: background_image
-  };
+   };
 
-  return (
-    <div className="col l12 m12 s12">
-      <a className="link-index-card" target="_blank" href={'/races/' + props.race.id}>
-        <div className="card-wrapper-race card">
-          <div className="race-card-index" data-value={props.race.id}>
-            <div style={divStyle} className="image-card-background" data-value={props.race.id}>
-            </div>
-            <div className="d-flex flex-column card-info-race " data-value="<%= race.id  %>">
-              <p className="" data-value={props.race.id}>{props.race.name.substring(0, 90)}</p>
-              <div className="d-flex justify-content-between" data-value={props.race.id}>
-                <p className="mb-0 race-info-card" data-value={props.race.id}>{formatDate(new Date(props.race.next_edition))}</p>
-                <p>{props.race.typo} | {props.race.race_distance}Km</p>
-              </div>
-              <div className="d-flex justify-content-between" data-value={props.race.id}>
-                <p className="mb-0 race-info-card " data-value={props.race.id}>
-                  <i className="mr-2 fas fa-map-marked-alt" data-value={props.race.id}></i>
-                  {props.race.location}
-                </p>
-                <Stars rating={props.race.rating} />
-              </div>
-            </div>
+return(
+  <div className="col l12 m12 s12">
+    <a className="link-index-card" target="_blank" href={'/races/' + props.race.id}>
+    <div className="card-wrapper-race card">
+      <div className="race-card-index" data-value={props.race.id}>
+        <div style ={divStyle} className="image-card-background" data-value={props.race.id}>
+        </div>
+        <div className="d-flex flex-column card-info-race " data-value="<%= race.id  %>">
+          <p className="" data-value={props.race.id}>{props.race.name.substring(0,90)}</p>
+          <div className="d-flex justify-content-between" data-value={props.race.id}>
+            <p className="mb-0 race-info-card" data-value={props.race.id}>{formatDate(new Date(props.race.next_edition))}</p>
+            <p>{props.race.typo} | {props.race.race_distance}Km</p>
+          </div>
+          <div className="d-flex justify-content-between" data-value={props.race.id}>
+            <p className="mb-0 race-info-card " data-value={props.race.id}>
+              <i className="mr-2 fas fa-map-marked-alt" data-value={props.race.id}></i>
+                {props.race.location}
+            </p>
+              <Stars rating={props.race.rating}/>
           </div>
         </div>
       </a>

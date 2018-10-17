@@ -22,7 +22,7 @@ class RangeForm extends React.Component {
     const { rating } = this.state;
     return (
       <div>
-        <p className="rating-label mb-0">{this.props.label}</p>
+        <p className="">{this.props.label}</p>
         <StarRatingComponent
           name= {this.props.field}
           starCount={5}

@@ -1,12 +1,11 @@
-<div class="card card-box-review mt-3 py-1 px-4">
-  <div class="row">
-    <div class="col-sm-2 mr-4">
+<div class="card card-box-review ">
+  <div class="row row-review-box">
+    <div class="col s12 m12 l2">
       <div class="user-review-box">
         <% if review.user.facebook_picture_url %>
-          <div class="review-avatar my-2" style="background-image: url('<%= review.user.facebook_picture_url %>')"></div>
+          <div class="review-avatar" style="background-image: url('<%= review.user.facebook_picture_url %>')"></div>
         <% else %>
           <div class="review-avatar-no-fb my-2"></div>
-
         <% end %>
         <div class="">
           <p><%= review.user.username %></p>
@@ -15,50 +14,50 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-9 mt-3 review-col">
-      <div class="row">
-        <div class="col-lg-3 col-sm-6">
-          <div class=" star-display mb-0 ">
+    <div class="col l10 review-col">
+      <div class="row row-review-details">
+        <div class="col l3 s6">
+          <div class="star-display mb-0 ">
             <p class="mb-0 review-text">Organizzazione</p>
             <% review.organization_rating.times do %>
-              <i class="fas fa-star"></i>
+            <i class="small star-review rating-star material-icons">star</i>
             <% end %>
           </div>
 
         </div>
-        <div class="col-lg-3 col-sm-6">
+        <div class="col l3 s6">
           <div class=" star-display mb-0 ">
             <p class="mb-0 review-text">Percorso</p>
             <% review.path_rating.times do %>
-              <i class="fas fa-star"></i>
+            <i class="small star-review rating-star material-icons">star</i>
             <% end %>
           </div>
 
         </div>
-        <div class="col-lg-3 col-sm-6">
+        <div class="col l3 s6">
           <div class=" star-display mb-0 ">
             <p class="mb-0 review-text">Qualità prezzo</p>
             <% review.quality_price_rating.times do %>
-              <i class="fas fa-star"></i>
+            <i class="small star-review rating-star material-icons">star</i>
             <% end %>
           </div>
 
         </div>
-        <div class="col-lg-3 col-sm-6">
+        <div class="col l3 s6">
           <div class=" star-display mb-0 ">
             <p class="mb-0 review-text">Difficoltà</p>
             <% review.difficulty.times do %>
-              <i class="fas fa-star"></i>
+            <i class="small star-review rating-star material-icons">star</i>
             <% end %>
           </div>
 
         </div>
 
       </div>
-      <h5 class="mt-3"><%= review.title%></h5>
+      <h6 class="mt-3"><%= review.title%></h6>
       <p class="review-text">
         <%= review.text%></p>
-        <p class="review-date mb-1">Creata il:<%= review.created_at.strftime("%d/%m/%Y") %></p>
+        <p class="review-date">Creata il:<%= review.created_at.strftime("%d/%m/%Y") %></p>
 
     </div>
 
