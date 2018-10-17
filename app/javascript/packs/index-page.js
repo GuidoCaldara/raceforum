@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Flatpickr from 'react-flatpickr'
-import { Component } from 'react'
+import {Component} from 'react'
 import { compose, withProps } from "recompose"
-import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import {  withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import { calculateCenter } from "packs/calculateCenter"
 import { MapWithAMakredInfoWindow } from 'packs/react-map.js';
-import { calcCrow } from 'packs/geoloc-calculator.js'
+import {calcCrow} from 'packs/geoloc-calculator.js'
 import Geocode from "react-geocode";
 Geocode.setApiKey("AIzaSyCFlJdOlbwUvf8Dn0Dov_urzaVvgxdRgxs");
 
@@ -41,7 +41,7 @@ class IndexPage extends React.Component {
     };
   }
 
-  resetSearch() {
+  resetSearch(){
     this.setState(this.getInitialState());
   }
 
@@ -64,12 +64,12 @@ class IndexPage extends React.Component {
       races = this.filterByLocation(races)
     }
     this.setState(() => {
-      return { filteredRaces: races }
+      return {filteredRaces: races}
     })
 
   }
 
-  filterBySeason(races) {
+  filterBySeason(races){
     let races_list = races
     const loc = this.state.choosen_season
     races_list = races_list.filter(function (e) {
@@ -112,7 +112,7 @@ class IndexPage extends React.Component {
     let index_filter = filters.indexOf("dates")
     filters.splice(index_filter, 1)
     this.setState(() => {
-      return { filters: filters, selectedDate: null }
+      return {filters: filters, selectedDate: null}
     })
     this.filterRaces()
   }
@@ -122,7 +122,7 @@ class IndexPage extends React.Component {
     let index_filter = filters.indexOf("location")
     filters.splice(index_filter, 1)
     this.setState(() => {
-      return { filters: filters, location: null, locationName: null }
+      return {filters: filters, location: null, locationName: null}
     })
     this.filterRaces()
   }
@@ -131,13 +131,13 @@ class IndexPage extends React.Component {
     let filters = this.state.filters
     if (e.length > 1) {
       this.setState(() => {
-        return { selectedDate: e }
+        return {selectedDate: e}
       })
       if (filters.indexOf("dates") == -1) {
         filters.push("dates")
       }
       this.setState(() => {
-        return { dates: e, filters: filters }
+        return {dates: e, filters: filters}
       })
     }
     this.filterRaces()
@@ -152,7 +152,7 @@ class IndexPage extends React.Component {
       if (filters.indexOf("distance") == -1)
         filters.push("distance")
       this.setState(() => {
-        return { distances: distances_array, filters: filters }
+        return {distances: distances_array, filters: filters}
       })
     } else {
       let index_distance = distances_array.indexOf(value)
@@ -162,7 +162,7 @@ class IndexPage extends React.Component {
         filters.splice(index_filter, 1)
       }
       this.setState(() => {
-        return { distances: distances_array, filters: filters }
+        return {distances: distances_array, filters: filters}
       })
     }
     this.filterRaces()
@@ -177,7 +177,7 @@ class IndexPage extends React.Component {
       if (filter_type.indexOf("type") == -1)
         filter_type.push("type")
       this.setState(() => {
-        return { typos: typos_array, filter_type: filter_type }
+        return {typos: typos_array, filter_type: filter_type}
       })
     } else {
       let index_typos = typos_array.indexOf(value)
@@ -187,7 +187,7 @@ class IndexPage extends React.Component {
         filter_type.splice(index_filter, 1)
       }
       this.setState(() => {
-        return { typos: typos_array, filter_type: filter_type }
+        return {typos: typos_array, filter_type: filter_type}
       })
     }
     this.filterRaces()
@@ -202,45 +202,45 @@ class IndexPage extends React.Component {
     }
   }
 
-  selectSeason(e) {
+  selectSeason(e){
     this.setState(() => {
-      return { choosen_season: [] }
+      return {choosen_season: []}
     })
     let seasons = this.state.choosen_season
     let filter_type = this.state.filters
-    if (e.target.checked) {
+    if (e.target.checked){
       if (filter_type.indexOf("season") == -1)
         filter_type.push("season")
-      switch (e.target.value) {
-        case "summer":
-          seasons[0] = 6
-          seasons[1] = 7
-          seasons[2] = 8
-          break;
-        case "spring":
-          seasons[0] = 3
-          seasons[1] = 4
-          seasons[2] = 5
-          break;
-        case "autumn":
-          seasons[0] = 9
-          seasons[1] = 10
-          seasons[2] = 11
-          break;
-        case "spring":
-          seasons[0] = 12
-          seasons[1] = 1
-          seasons[2] = 2
-          break;
-      }
+        switch(e.target.value) {
+            case "summer":
+                seasons[0] = 6
+                seasons[1] = 7
+                seasons[2] = 8
+                break;
+            case "spring":
+                seasons[0] = 3
+                seasons[1] = 4
+                seasons[2] = 5
+                break;
+            case "autumn":
+                seasons[0] = 9
+                seasons[1] = 10
+                seasons[2] = 11
+                break;
+            case "spring":
+                seasons[0] = 12
+                seasons[1] = 1
+                seasons[2] = 2
+                break;
+        }
       this.setState((prevState) => {
-        return { choosen_season: seasons, filter_type: filter_type }
+        return {choosen_season: seasons, filter_type: filter_type}
       })
     } else {
       let index_filter = filter_type.indexOf("season")
       filter_type.splice(index_filter, 1)
       this.setState(() => {
-        return { filter_type: filter_type }
+        return {filter_type: filter_type}
       })
     }
     this.filterRaces()
@@ -250,7 +250,7 @@ class IndexPage extends React.Component {
     e.preventDefault()
     let place = e.target.elements[0].value
     Geocode.fromAddress(place).then(response => {
-      const { lat, lng } = response.results[0].geometry.location;
+      const {lat, lng} = response.results[0].geometry.location;
       let filters = this.state.filters
       if (filters.indexOf("location") == -1)
         filters.push("location")
@@ -269,31 +269,25 @@ class IndexPage extends React.Component {
     });
   }
 
-  orderByDate(races) {
-    var orderedRaces = races.sort((a, b) => {
+  orderByDate(races){
+   var orderedRaces = races.sort((a,b) => {
       return new Date(a.next_edition).getTime() -
-        new Date(b.next_edition).getTime()
-    })
-    return orderedRaces
+          new Date(b.next_edition).getTime()
+  })
+     return orderedRaces
   }
 
   render() {
-    let races = this.state.races.filter(e => new Date(e.next_edition) <= new Date(new Date().getTime() + (100 * 24 * 60 * 60 * 1000)))
+    let races = this.state.races.filter(e => new Date(e.next_edition) <= new Date(new Date().getTime()+(100*24*60*60*1000)))
     if (this.state.filteredRaces != null) {
       races = this.state.filteredRaces
     }
     races = this.orderByDate(races)
-    let markers = races.map(item => { return { lat: item.latitude, lng: item.longitude } });
+    let  markers = races.map(item => { return { lat:item.latitude, lng: item.longitude }});
     return (<div>
-<<<<<<< HEAD
       <Place resetSearch={this.resetSearch} resetLocation={this.resetLocation} getCordinates={this.getCordinates} filterDate={this.filterDate} selectedDate={this.state.selectedDate} resetDate={this.resetDate} locationValueDefault={this.state.locationValueDefault}/>
       <ButtonsContainer selectSeason={this.selectSeason} selectedDate={this.state.selectedDate} searchRaces={this.searchRaces} filteredRaces={this.state.filteredRaces} filterDate={this.filterDate} filterType={this.filterType} filterDistance={this.filterDistance} resetDate={this.resetDate} startDate={this.state.startDate}/>
       <DisplayRaces markers={ markers} races={races}/>
-=======
-      <Place resetSearch={this.resetSearch} resetLocation={this.resetLocation} getCordinates={this.getCordinates} filterDate={this.filterDate} selectedDate={this.state.selectedDate} resetDate={this.resetDate} locationValueDefault={this.state.locationValueDefault} />
-      <ButtonsContainer selectSeason={this.selectSeason} selectedDate={this.state.selectedDate} searchRaces={this.searchRaces} filteredRaces={this.state.filteredRaces} filterDate={this.filterDate} filterType={this.filterType} filterDistance={this.filterDistance} resetDate={this.resetDate} startDate={this.state.startDate} />
-      <DisplayRaces markers={markers} races={races} />
->>>>>>> master
     </div>);
   }
 }
@@ -309,7 +303,7 @@ const ButtonsContainer = (props) => {
     props.selectSeason(e)
     let boxes = document.querySelectorAll(".season-check")
     boxes.forEach((b) => {
-      if (b.value != e.target.value) { b.checked = false }
+      if (b.value != e.target.value) {b.checked = false}
     })
   }
   return (<div className="card filter-row row">
@@ -372,28 +366,28 @@ class Place extends React.Component {
     this.state = {
       value: ""
     };
-  }
+}
 
 
-  setValue(e) {
-    let value = e.target.value
-    this.setState(() => {
-      return { value: value }
-    })
-  }
+    setValue(e){
+      let value = e.target.value
+      this.setState(() => {
+        return {value: value}
+      })
+    }
 
-  changeLocation(e) {
-    e.preventDefault()
-    let place = e.target.elements[0].value
-    this.props.getCordinates(e)
-    this.setState(() => {
-      return { value: place }
-    })
-  }
+    changeLocation(e){
+      e.preventDefault()
+      let place = e.target.elements[0].value
+      this.props.getCordinates(e)
+      this.setState(() => {
+        return {value: place}
+      })
+    }
 
-  resetSearch() {
-    this.props.resetSearch()
-  }
+    resetSearch(){
+      this.props.resetSearch()
+    }
 
     resetLocation(){
       this.setState(() => {
@@ -432,10 +426,10 @@ class Place extends React.Component {
           </div>
         </div>
       </div>)
+    }
   }
-}
 
-const Stars = (props) => {
+const Stars = (props) =>{
   const n = parseInt(props.rating.toString().split(".")[0])
   const h = (parseInt(props.rating.toString().split(".")[1]) > 5)
   let full_stars = [...Array(n)].map((e, i) =><i key={i} className="star-blue-card tiny material-icons">star</i>)
@@ -465,25 +459,25 @@ const CheckBox = (props) => {
 
 const RaceCard = (props) => {
   const formatDate = (date) => {
-    var monthNames = [
-      "Gennaio", "Febbraio", "Marzo",
-      "Aprile", "Maggio", "Giugno", "Luglio",
-      "Agosto", "Settembre", "Ottobre",
-      "Novembre", "Dicembre"
-    ];
+  var monthNames = [
+    "Gennaio", "Febbraio", "Marzo",
+    "Aprile", "Maggio", "Giugno", "Luglio",
+    "Agosto", "Settembre", "Ottobre",
+    "Novembre", "Dicembre"
+  ];
 
-    var day = date.getDate();
-    var monthIndex = date.getMonth();
-    var year = date.getFullYear();
+  var day = date.getDate();
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
 
-    return day + ' ' + monthNames[monthIndex] + ' ' + year;
-  }
+  return day + ' ' + monthNames[monthIndex] + ' ' + year;
+}
 
-  let background_image = ""
-  if (props.race.photo_list[0] != null) {
-    background_image = `url('${props.race.photo_list[0]}')`
+  let background_image  = ""
+  if (props.race.photo_list[0] != null ){
+      background_image = `url('${props.race.photo_list[0]}')`
   } else {
-    if (props.race.typo == "skyrace" || props.race.typo == "trail") {
+    if (props.race.typo == "skyrace" || props.race.typo == "trail"){
       background_image = `url('/assets/roadbackground.jpg')`
     } else {
       background_image = `url('/assets/trailbackground.jpg')`
@@ -515,19 +509,21 @@ return(
               <Stars rating={props.race.rating}/>
           </div>
         </div>
-      </a>
+      </div>
     </div>
+  </a>
+  </div>
 
-  )
+)
 
 }
 
 const DisplayRaces = (props) => {
-  return (
+  return(
     <div className="row">
       <div className="col m7">
         <div id="races-list" className="row pt-4 pl-3">
-          {props.races.map(e => <RaceCard key={e.id} race={e} />)}
+            {props.races.map(e => <RaceCard key={e.id} race={e}/>)}
         </div>
       </div>
       <div className="col m5 map-col">
@@ -535,10 +531,10 @@ const DisplayRaces = (props) => {
           <MapWithAMakredInfoWindow
             races={props.races}
             markers={props.markers}
-            loadingElement={<div style={{ height: `100%` }} />}
+            loadingElement={<div  style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `100vh`, position: `sticky` }} />}
             mapElement={<div style={{ height: `100%` }} />}
-          />
+            />
         </div>
       </div>
     </div>
@@ -549,8 +545,8 @@ const DisplayRaces = (props) => {
 
 let races = new Object()
 fetch("/api/v1/races").then(response => response.json()).then((data) => {
-  ReactDOM.render(<IndexPage races={data} />, document.querySelector("#index-page-search"))
+  ReactDOM.render(<IndexPage races={data}/>, document.querySelector("#index-page-search"))
   var places = require('places.js');
-  var placesAutocomplete = places({ container: document.querySelector('#address-input') });
+  var placesAutocomplete = places({container: document.querySelector('#address-input')});
 
 });
